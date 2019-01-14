@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  STONotice
+
+  Created by Ke Wang on 2019/1/8.
+  Copyright © 2019年 Bankrous.inc. All rights reserved.
+*/
+CFBundleDisplayName = "STOお知らせ";

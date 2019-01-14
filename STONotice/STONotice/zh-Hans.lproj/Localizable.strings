@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  STONotice
+
+  Created by Ke Wang on 2019/1/8.
+  Copyright © 2019年 Bankrous.inc. All rights reserved.
+*/
+
+"homeTabbarTitle" = "首页";
+"newsTabberTitle" = "资讯";
+"discussTabberTitle" = "讨论";
+"selfTabbarTitle" = "我的";
+
+"registerTitle" = "注册";
+"loginTitle" = "登录";
+"userName" = "用户名";
+"email" = "邮箱";
+"password" = "密码";
+"confirmPassword" = "重复密码";
+"loginBtn" = "继续";
+"forgotPSW" = "忘记密码?";
+

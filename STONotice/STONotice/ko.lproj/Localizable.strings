@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  STONotice
+
+  Created by Ke Wang on 2019/1/8.
+  Copyright © 2019年 Bankrous.inc. All rights reserved.
+*/
+
+"homeTabbarTitle" = "홈";
+"newsTabberTitle" = "정보";
+"discussTabberTitle" = "토론";
+"selfTabbarTitle" = "내";
+
+
+
+"registerTitle" = "등록";
+"loginTitle" = "로그인";
+"userName" = "사용자 이름";
+"email" = "사서함";
+"password" = "비밀번호";
+"confirmPassword" = "비밀번호 반복";
+"loginBtn" = "계속하기";
+"forgotPSW" = "비밀 번호를 잊어 버렸습니다?";

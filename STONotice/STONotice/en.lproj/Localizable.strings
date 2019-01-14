@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  STONotice
+
+  Created by Ke Wang on 2019/1/8.
+  Copyright © 2019年 Bankrous.inc. All rights reserved.
+*/
+
+"homeTabbarTitle" = "Projects"; //!< 首页
+"newsTabberTitle" = "News"; //!< 新闻
+"discussTabberTitle" = "Community"; //!< 讨论
+"selfTabbarTitle" = "Accpunt"; //!< 我的
+
+
+"registerTitle" = "Register"; //!< 注册
+"loginTitle" = "Login"; //!< 登录
+"userName" = "UserName"; //!< 用户名
+"email" = "Email"; //!< 邮箱
+"password" = "Password"; //!< 密码
+"confirmPassword" = "ConfirmPassword"; //!< 重复密码
+"loginBtn" = "Continue"; //!< 继续
+"forgotPSW" = "Forgot your password?"; //!< 忘记密码
+
