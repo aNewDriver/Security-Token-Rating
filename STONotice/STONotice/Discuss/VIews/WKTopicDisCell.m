@@ -120,8 +120,8 @@
         _detailL.textColor = RGBACOLOR(66, 66, 66, 1);
         _detailL.textAlignment = NSTextAlignmentLeft;
         _detailL.font = SYSTEM_NORMAL_FONT(12.0f);
-        _detailL.numberOfLines = 0;
-        _detailL.text = @"不少从业者认为STO肩负着“繁荣区块链”的重任，然而也有人不相信那些非区块链行业的资产标的加上…";
+        _detailL.numberOfLines = 5;
+        _detailL.text = @"不少从业者认为STO肩负着“繁荣区块链”的重任，然而也有人不相信那些非区块链行业的资产标的加上…不少从业者认为STO肩负着“繁荣区块链”的重任，然而也有人不相信那些非区块链行业的资产标的加上…不少从业者认为STO肩负着“繁荣区块链”的重任，然而也有人不相信那些非区块链行业的资产标的加上…不少从业者认为STO肩负着“繁荣区块链”的重任，然而也有人不相信那些非区块链行业的资产标的加上…";
     }
     return _detailL;
 }

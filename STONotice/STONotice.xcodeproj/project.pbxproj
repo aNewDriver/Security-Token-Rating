@@ -1072,7 +1072,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FYD84MLV78;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/kewang/Desktop/STONotice/STONotice/Untils/Headers.pch;
+				GCC_PREFIX_HEADER = /Users/kewang/Desktop/STOAPP/STONotice/STONotice/Untils/Headers.pch;
 				INFOPLIST_FILE = STONotice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1093,7 +1093,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FYD84MLV78;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/kewang/Desktop/STONotice/STONotice/Untils/Headers.pch;
+				GCC_PREFIX_HEADER = /Users/kewang/Desktop/STOAPP/STONotice/STONotice/Untils/Headers.pch;
 				INFOPLIST_FILE = STONotice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
