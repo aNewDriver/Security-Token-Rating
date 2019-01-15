@@ -60,7 +60,8 @@
     [self.imageV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.backView.mas_right).offset(-10.0f);
         make.top.equalTo(self.titleL.mas_bottom).offset(10.0f);
-        make.width.height.equalTo(@80.0f);
+        make.width.equalTo(@90.0f);
+        make.height.equalTo(@60.0f);
     }];
     
     [self.detailL mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -98,6 +99,8 @@
     if (!_imageV) {
         _imageV = [[UIImageView alloc] init];
         _imageV.backgroundColor = BACKGROUND_COLOR;
+        _imageV.layer.cornerRadius = 4.0f;
+        _imageV.layer.masksToBounds = YES;
     }
     return _imageV;
 }

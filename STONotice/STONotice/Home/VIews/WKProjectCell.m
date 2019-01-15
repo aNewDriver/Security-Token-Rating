@@ -11,10 +11,12 @@
 @interface WKProjectCell ()
 
 @property (nonatomic, strong) UIView *backView;
+@property (nonatomic, strong) UIView *shadowView;
 @property (nonatomic, strong) UIImageView *imageV;
 @property (nonatomic, strong) UILabel *nameL;
 @property (nonatomic, strong) UILabel *priceL;
 @property (nonatomic, strong) UILabel *priceDetailL;
+@property (nonatomic, strong) UIImageView *iconImage;
 
 @end
 
@@ -31,21 +33,20 @@
 }
 
 
-
-
-
 #pragma mark - method
 
 - (void)configureUIAndFrame {
     self.contentView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.0f];
     self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.0f];
-    [self.contentView addSubview:self.backView];
+    [self.contentView addSubview:self.shadowView];
+    [self.shadowView addSubview:self.backView];
     [self.backView addSubview:self.imageV];
     [self.backView addSubview:self.nameL];
     [self.backView addSubview:self.priceL];
     [self.backView addSubview:self.priceDetailL];
+    [self.backView addSubview:self.iconImage];
     
-    [self.backView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.shadowView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(5.0f);
         make.left.equalTo(self.contentView).offset(15.0f);
         make.height.equalTo(@(100.0f));
@@ -53,15 +54,20 @@
         make.bottom.equalTo(self.contentView.mas_bottom).offset(-5.0f);
     }];
     
+    [self.backView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.width.right.bottom.equalTo(self.shadowView);
+    }];
+    
+    
     [self.imageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.backView).offset(18.0f);
-        make.top.equalTo(self.backView).offset(20.0f);
+        make.left.equalTo(self.backView).offset(15.0f);
+        make.top.equalTo(self.backView).offset(25.0f);
         make.width.height.equalTo(@25.0f);
     }];
     
     [self.nameL mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.imageV.mas_right).offset(10.0f);
-        make.top.equalTo(self.imageV);
+        make.centerY.equalTo(self.imageV.mas_centerY);
         make.height.equalTo(@20.0f);
         make.width.equalTo(self.nameL.mas_width);
     }];
@@ -71,6 +77,11 @@
         make.width.equalTo(@90.0f);
         make.height.equalTo(self.priceL.mas_height);
         make.top.equalTo(self.nameL);
+    }];
+    [self.iconImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.equalTo(self.backView);
+        make.width.equalTo(@45.0f);
+        make.height.equalTo(@16.0f);
     }];
     [self.priceDetailL mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.backView.mas_right).offset(-10.0f);
@@ -90,7 +101,7 @@
     for (NSUInteger i = 0; i < array.count; i++) {
         NSString *tag = array[i];
         CGSize size = [tag sizeWithAttributes:@{NSFontAttributeName : SYSTEM_NORMAL_FONT(9.0f)}];
-        CGFloat width = size.width + 10.0f;
+        CGFloat width = size.width + 12.0f;
         
         UILabel *tagL = [[UILabel alloc] init];
         tagL.textColor = RGBCOLOR(151, 151, 151);
@@ -106,14 +117,26 @@
             make.left.equalTo(@(left));
             make.top.equalTo(self.priceDetailL);
             make.width.equalTo(@(width));
-            make.height.equalTo(@10.0f);
+            make.height.equalTo(@18.0f);
         }];
-        left = width + 5.0f + left;
+        left = width + 12.0f + left;
     }
     
 }
 
 #pragma mark - get
+
+- (UIView *)shadowView {
+    if (!_shadowView) {
+        _shadowView = [[UIView alloc] init];
+        _shadowView.backgroundColor = [UIColor whiteColor];
+        _shadowView.layer.cornerRadius = 4.0f;
+        _shadowView.layer.shadowOpacity = 1;
+        _shadowView.layer.shadowColor = RGBACOLOR(98, 98, 98, 0.12).CGColor;
+        _shadowView.layer.shadowOffset = CGSizeMake(0, 2);
+    }
+    return _shadowView;
+}
 
 - (UIView *)backView {
     if (!_backView) {
@@ -121,6 +144,7 @@
         _backView.backgroundColor = [UIColor whiteColor];
         _backView.layer.cornerRadius = 4.0f;
         _backView.layer.shadowOpacity = 1;
+        _backView.layer.masksToBounds = YES;
         _backView.layer.shadowColor = RGBACOLOR(98, 98, 98, 0.12).CGColor;
         _backView.layer.shadowOffset = CGSizeMake(0, 2);
     }
@@ -168,6 +192,16 @@
         _priceDetailL.text = @"Total Supply";
     }
     return _priceDetailL;
+}
+
+- (UIImageView *)iconImage {
+    if (!_iconImage) {
+        _iconImage = [[UIImageView alloc] init];
+        _iconImage.layer.masksToBounds = YES;
+        _iconImage.backgroundColor = [UIColor clearColor];
+        _iconImage.image = [UIImage imageNamed:@"issuedIcon"];
+    }
+    return _iconImage;
 }
 
 

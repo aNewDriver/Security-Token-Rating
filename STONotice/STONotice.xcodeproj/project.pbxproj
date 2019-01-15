@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E3A983621ED6F95009F1ACE /* UIView+WKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A983521ED6F95009F1ACE /* UIView+WKAdd.m */; };
+		0E3A983C21EDB932009F1ACE /* NSObject+WKGradientAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A983B21EDB932009F1ACE /* NSObject+WKGradientAdd.m */; };
+		0E3A983E21EDC5EA009F1ACE /* Self.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E3A983D21EDC5EA009F1ACE /* Self.xcassets */; };
+		0E3A984021EDC5F9009F1ACE /* Projects.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E3A983F21EDC5F9009F1ACE /* Projects.xcassets */; };
+		0E3A984221EDC607009F1ACE /* News.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E3A984121EDC607009F1ACE /* News.xcassets */; };
+		0E3A984421EDC617009F1ACE /* Community.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E3A984321EDC617009F1ACE /* Community.xcassets */; };
+		0E3A984621EDC76A009F1ACE /* TabberIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E3A984521EDC76A009F1ACE /* TabberIcons.xcassets */; };
+		0E3A984921EDD8AA009F1ACE /* WKSelfHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A984821EDD8AA009F1ACE /* WKSelfHeaderView.m */; };
 		0EBEECEE21E45EAD0010E6FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBEECED21E45EAD0010E6FA /* AppDelegate.m */; };
 		0EBEECF421E45EAD0010E6FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EBEECF221E45EAD0010E6FA /* Main.storyboard */; };
 		0EBEECF621E45EAF0010E6FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EBEECF521E45EAF0010E6FA /* Assets.xcassets */; };
@@ -74,6 +82,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E3A983421ED6F95009F1ACE /* UIView+WKAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+WKAdd.h"; sourceTree = "<group>"; };
+		0E3A983521ED6F95009F1ACE /* UIView+WKAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+WKAdd.m"; sourceTree = "<group>"; };
+		0E3A983A21EDB932009F1ACE /* NSObject+WKGradientAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+WKGradientAdd.h"; sourceTree = "<group>"; };
+		0E3A983B21EDB932009F1ACE /* NSObject+WKGradientAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WKGradientAdd.m"; sourceTree = "<group>"; };
+		0E3A983D21EDC5EA009F1ACE /* Self.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Self.xcassets; sourceTree = "<group>"; };
+		0E3A983F21EDC5F9009F1ACE /* Projects.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Projects.xcassets; sourceTree = "<group>"; };
+		0E3A984121EDC607009F1ACE /* News.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = News.xcassets; sourceTree = "<group>"; };
+		0E3A984321EDC617009F1ACE /* Community.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Community.xcassets; sourceTree = "<group>"; };
+		0E3A984521EDC76A009F1ACE /* TabberIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabberIcons.xcassets; sourceTree = "<group>"; };
+		0E3A984721EDD8AA009F1ACE /* WKSelfHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKSelfHeaderView.h; sourceTree = "<group>"; };
+		0E3A984821EDD8AA009F1ACE /* WKSelfHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKSelfHeaderView.m; sourceTree = "<group>"; };
 		0EBEECE921E45EAD0010E6FA /* STONotice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STONotice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EBEECEC21E45EAD0010E6FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0EBEECED21E45EAD0010E6FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -267,6 +286,11 @@
 				0EBEED4421E475F10010E6FA /* WKMainViewController.m */,
 				0EBEECF221E45EAD0010E6FA /* Main.storyboard */,
 				0EBEECF521E45EAF0010E6FA /* Assets.xcassets */,
+				0E3A984521EDC76A009F1ACE /* TabberIcons.xcassets */,
+				0E3A983F21EDC5F9009F1ACE /* Projects.xcassets */,
+				0E3A984121EDC607009F1ACE /* News.xcassets */,
+				0E3A984321EDC617009F1ACE /* Community.xcassets */,
+				0E3A983D21EDC5EA009F1ACE /* Self.xcassets */,
 				0EBEECF721E45EAF0010E6FA /* LaunchScreen.storyboard */,
 				0EBEECFA21E45EAF0010E6FA /* Info.plist */,
 				0EBEED6621E47FF70010E6FA /* InfoPlist.strings */,
@@ -327,6 +351,8 @@
 				0EBEED7921E491220010E6FA /* WKRequestManager.m */,
 				0EBEEDB321E72D3C0010E6FA /* WKLanguageTool.h */,
 				0EBEEDB421E72D3C0010E6FA /* WKLanguageTool.m */,
+				0E3A983A21EDB932009F1ACE /* NSObject+WKGradientAdd.h */,
+				0E3A983B21EDB932009F1ACE /* NSObject+WKGradientAdd.m */,
 			);
 			path = CustomTools;
 			sourceTree = "<group>";
@@ -344,6 +370,8 @@
 				0EBEED9A21E592190010E6FA /* UIViewController+WKAdd.m */,
 				0EBEEDD421EC7DAB0010E6FA /* UITextView+WKPlaceHolder.h */,
 				0EBEEDD521EC7DAB0010E6FA /* UITextView+WKPlaceHolder.m */,
+				0E3A983421ED6F95009F1ACE /* UIView+WKAdd.h */,
+				0E3A983521ED6F95009F1ACE /* UIView+WKAdd.m */,
 			);
 			path = Categorys;
 			sourceTree = "<group>";
@@ -570,6 +598,8 @@
 				0EBEEDA121E5AF250010E6FA /* WKSelfCell.m */,
 				0EBEEDB921E739340010E6FA /* WKSetLanagueCell.h */,
 				0EBEEDBA21E739340010E6FA /* WKSetLanagueCell.m */,
+				0E3A984721EDD8AA009F1ACE /* WKSelfHeaderView.h */,
+				0E3A984821EDD8AA009F1ACE /* WKSelfHeaderView.m */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -740,9 +770,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EBEED6F21E481AD0010E6FA /* Localizable.strings in Resources */,
+				0E3A983E21EDC5EA009F1ACE /* Self.xcassets in Resources */,
+				0E3A984421EDC617009F1ACE /* Community.xcassets in Resources */,
 				0EBEECF921E45EAF0010E6FA /* LaunchScreen.storyboard in Resources */,
 				0EBEED6421E47FF70010E6FA /* InfoPlist.strings in Resources */,
 				0EBEECF621E45EAF0010E6FA /* Assets.xcassets in Resources */,
+				0E3A984021EDC5F9009F1ACE /* Projects.xcassets in Resources */,
+				0E3A984221EDC607009F1ACE /* News.xcassets in Resources */,
+				0E3A984621EDC76A009F1ACE /* TabberIcons.xcassets in Resources */,
 				0EBEECF421E45EAD0010E6FA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -820,11 +855,13 @@
 				0EBEED3821E4730A0010E6FA /* WKMakerUrlProtocol.m in Sources */,
 				0EBEEDC721EC30EE0010E6FA /* WKTopicDisCell.m in Sources */,
 				0EBEEDD021EC6FF90010E6FA /* WKCommentVC.m in Sources */,
+				0E3A983C21EDB932009F1ACE /* NSObject+WKGradientAdd.m in Sources */,
 				0EBEEDAF21E6F90E0010E6FA /* WKDiscussCell.m in Sources */,
 				0EBEEDC121EC260E0010E6FA /* WKProjectDiscussCell.m in Sources */,
 				0EBEED7D21E4A3200010E6FA /* WKPostInfoModel.m in Sources */,
 				0EBEEDBE21EC1AFF0010E6FA /* WKProjectCell.m in Sources */,
 				0EBEEDA621E5D1130010E6FA /* WKNewCell.m in Sources */,
+				0E3A983621ED6F95009F1ACE /* UIView+WKAdd.m in Sources */,
 				0EBEEDCD21EC68F20010E6FA /* WKCommentView.m in Sources */,
 				0EBEED9221E588690010E6FA /* WKRegisterVC.m in Sources */,
 				0EBEEDB821E738F60010E6FA /* WKSetLanagueVC.m in Sources */,
@@ -854,6 +891,7 @@
 				0EBEED4F21E476550010E6FA /* WKSelfViewController.m in Sources */,
 				0EBEED4521E475F10010E6FA /* WKMainViewController.m in Sources */,
 				0EBEECEE21E45EAD0010E6FA /* AppDelegate.m in Sources */,
+				0E3A984921EDD8AA009F1ACE /* WKSelfHeaderView.m in Sources */,
 				0EBEED9521E588760010E6FA /* WKLoginVC.m in Sources */,
 				0EBEED8821E4AFEF0010E6FA /* WKNewsViewController.m in Sources */,
 			);

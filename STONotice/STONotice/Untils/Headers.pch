@@ -18,6 +18,8 @@
 #import "WKRequestManager.h"
 #import "MBProgressHUD.h"
 #import "Toast.h"
+#import "UIView+WKAdd.h"
+#import "NSObject+WKGradientAdd.h"
 
 
 #endif /* Headers_pch */

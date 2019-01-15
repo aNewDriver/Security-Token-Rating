@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WKSelfCell : UITableViewCell
 
 - (void)configureUI:(NSString *)title;
+- (void)updateImageIconWithImageName:(NSString *)imageName;
+
 
 @end
 

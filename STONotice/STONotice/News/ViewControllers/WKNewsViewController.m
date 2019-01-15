@@ -33,10 +33,29 @@
     self.mainTV.tableHeaderView = [self createBannerView];
 }
 
-- (SDCycleScrollView *)createBannerView {
-    SDCycleScrollView *bannerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 300) imageNamesGroup:@[@"", @"", @""]];
+- (UIView *)createBannerView {
+    
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.0f];
+    view.frame = CGRectMake(0, 0, SCREEN_WIDTH, 200);
+    
+    UIView *shadowView = [[UIView alloc] initWithFrame:CGRectMake(15, 12, SCREEN_WIDTH - 30.0f, 176)];
+    shadowView.layer.cornerRadius = 5.0f;
+    shadowView.layer.shadowOpacity = 1.0f;
+    shadowView.layer.shadowOffset = CGSizeMake(0, 2);
+    shadowView.layer.shadowColor = RGBCOLOR(0, 0, 0).CGColor;
+    [view addSubview:shadowView];
+
+    
+    
+    SDCycleScrollView *bannerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 30.0f, 176) imageNamesGroup:@[@"", @"", @""]];
+    bannerView.layer.cornerRadius = 5.0f;
+    bannerView.layer.masksToBounds = YES;
+    bannerView.currentPageDotImage = [UIImage imageNamed:@"bannerSelected"];
+    bannerView.pageDotImage = [UIImage imageNamed:@"bannerDefault"];
+    [shadowView addSubview:bannerView];
     bannerView.titlesGroup = @[@"123", @"345", @"456"];
-    return bannerView;
+    return view;
 }
 
 #pragma mark - delegate

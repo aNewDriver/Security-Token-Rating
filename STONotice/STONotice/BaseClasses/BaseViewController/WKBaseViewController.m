@@ -25,7 +25,10 @@
     //!< 去除黑线
     [self.navigationController.navigationBar setBackgroundImage:[self createImageWithColor:[UIColor whiteColor]] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [self createImageWithColor:[UIColor whiteColor]];
-
+    [self.navigationController.navigationBar dropShadowWithOffset:CGSizeMake(0, 2)
+                                                           radius:4
+                                                            color:RGBCOLOR(0, 0, 0)
+                                                          opacity:0.5];
 }
 
 
@@ -110,6 +113,9 @@
     UIGraphicsEndImageContext();
     return theImage;
 }
+
+
+
 
 
 @end

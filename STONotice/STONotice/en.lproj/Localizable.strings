@@ -18,6 +18,6 @@
 "email" = "Email"; //!< 邮箱
 "password" = "Password"; //!< 密码
 "confirmPassword" = "ConfirmPassword"; //!< 重复密码
-"loginBtn" = "Continue"; //!< 继续
+"loginBtn" = "Login"; //!< 继续
 "forgotPSW" = "Forgot your password?"; //!< 忘记密码
 

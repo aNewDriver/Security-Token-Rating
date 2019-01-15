@@ -28,22 +28,54 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)baseConfigure {
-//    self.view.backgroundColor = [UIColor redColor];
-    [self.view addSubview:self.mainTV];
-    [self.mainTV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.width.right.equalTo(self.view);
-        make.top.equalTo(self.view).offset(50.0f);
-        make.height.equalTo(self.view).offset(-50.0f);
-    }];
-//    self.mainTV.tableHeaderView = [self createBannerView];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;//隐藏
+    //    [UIApplication sharedApplication].statusBarHidden = YES;
 }
 
-- (SDCycleScrollView *)createBannerView {
-    SDCycleScrollView *bannerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 300) imageNamesGroup:@[@"", @"", @""]];
-    bannerView.titlesGroup = @[@"123", @"345", @"456"];
-    return bannerView;
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;//隐藏
 }
+
+- (void)baseConfigure {
+//    self.view.backgroundColor = [UIColor redColor];
+    [self configureBackImage];
+    [self.view addSubview:self.mainTV];
+    self.mainTV.tableHeaderView = [self headerView];
+    [self.mainTV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.width.right.equalTo(self.view);
+        make.top.equalTo(self.view);
+        make.height.equalTo(self.view).offset(-50.0f);
+    }];
+}
+
+- (void)configureBackImage {
+    UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200.0f)];
+    imageV.image = [UIImage imageNamed:@"backImage"];
+    [self.view addSubview:imageV];
+}
+
+- (UIView *)headerView {
+    UIView *view = [[UIView alloc] init];
+    view.frame = CGRectMake(0, 0, SCREEN_WIDTH, 105.0f);
+    view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.0f];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:view.frame];
+    label.textColor = [UIColor whiteColor];
+    label.backgroundColor = [UIColor clearColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.numberOfLines = 2;
+    label.font = SYSTEM_NORMAL_FONT(21.0f);
+    label.text = @"The first STO information \n platform is online";
+    [view addSubview:label];
+    
+    return view;
+}
+
 
 #pragma mark - delegate
 
@@ -52,11 +84,14 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    if (section == 0) {
+        return 2;
+    }
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -78,6 +113,30 @@
     
     WKProjectDetailVC *detailVC = [[WKProjectDetailVC alloc] init];
     [self.navigationController pushViewController:detailVC animated:YES];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40.0f)];
+    view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.0f];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 5, SCREEN_WIDTH - 15, 30.0f)];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = RGBCOLOR(98, 98, 108);
+    label.font = SYSTEM_NORMAL_FONT(14.0f);
+    NSString *str = @"";
+    if (section == 1) {
+        str = @"Unreleased";
+    }
+    label.text = str;
+    [view addSubview:label];
+    
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return 0.001f;
+    }
+    return 40.0f;
 }
 
 
