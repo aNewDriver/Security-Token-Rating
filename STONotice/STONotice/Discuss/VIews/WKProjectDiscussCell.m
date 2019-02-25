@@ -34,16 +34,36 @@
     }];
 }
 
+- (void)setProjectModelArray:(NSArray<WKPostInfoModel *> *)projectModelArray {
+    _projectModelArray = projectModelArray;
+    
+    [self.mainCV reloadData];
+}
+
 #pragma mark - delegate
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    return self.projectModelArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     WKDisCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WKDisCollectionViewCell" forIndexPath:indexPath];
     
+    WKPostInfoModel *model = self.projectModelArray[indexPath.row];
+    
+    [cell updateCellWithModel:model];
+    
+    
+    
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.didSelecetedAtIndexPath) {
+        self.didSelecetedAtIndexPath(indexPath);
+    }
+    
 }
 
 
@@ -53,8 +73,9 @@
     if (!_mainCV) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        layout.itemSize = CGSizeMake(160, 165);
-        layout.minimumInteritemSpacing = 10.0f;
+        layout.itemSize = CGSizeMake(190, 165);
+//        layout.minimumInteritemSpacing = -20.0f;
+        layout.minimumLineSpacing = -20.0f;
         
         _mainCV = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _mainCV.delegate = self;
@@ -62,6 +83,7 @@
         _mainCV.backgroundColor = BACKGROUND_COLOR;
 //        _mainCV.pagingEnabled = YES;
         [_mainCV registerClass:[WKDisCollectionViewCell class] forCellWithReuseIdentifier:@"WKDisCollectionViewCell"];
+        _mainCV.showsHorizontalScrollIndicator = NO;
     }
     return _mainCV;
 }

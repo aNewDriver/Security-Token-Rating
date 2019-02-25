@@ -32,8 +32,13 @@
     self.titleLabel.text = title;
 }
 
-- (void)updateImageIconWithImageName:(NSString *)imageName {
+- (void)updateImageIconWithImageName:(NSString *)imageName hiddenRightItem:(BOOL)hiddenRightItem {
     self.imageIcon.image = [UIImage imageNamed:imageName];
+    if (hiddenRightItem) {
+        [self.goIcon setHidden:YES];
+    } else {
+        [self.goIcon setHidden:NO];
+    }
 }
 
 - (void)configureUIAndFrame {
@@ -44,7 +49,8 @@
     [self.contentView addSubview:self.goIcon];
     
     [self.imageIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.equalTo(self.contentView).offset(15.0f);
+        make.left.equalTo(self.contentView).offset(15.0f);
+        make.centerY.equalTo(self.contentView);
         make.height.width.equalTo(@20.0f);
     }];
     
@@ -95,8 +101,8 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.backgroundColor = [UIColor clearColor];
-        _titleLabel.font = [UIFont systemFontOfSize:14.0f];
-        _titleLabel.textColor = RGBCOLOR(102, 102, 102);
+        _titleLabel.font = SPICAL_DETAIL_FONT(15.0f);
+        _titleLabel.textColor = DetailTextColor;
         _titleLabel.textAlignment = NSTextAlignmentLeft;
         _titleLabel.text = @"hhhh";
     }
@@ -106,7 +112,7 @@
 - (UILabel *)line {
     if (!_line) {
         _line = [[UILabel alloc] init];
-        _line.backgroundColor = [UIColor lightGrayColor];
+        _line.backgroundColor = RGBCOLOR(241, 241, 241);
     }
     return _line;
 }

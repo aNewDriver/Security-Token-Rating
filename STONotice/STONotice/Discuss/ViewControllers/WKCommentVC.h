@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WKCommentVC : WKBaseDetailViewController
 
+@property (nonatomic, copy) void(^refreshBlock)(void);
+
+
+@property (nonatomic, copy) NSString *postId;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

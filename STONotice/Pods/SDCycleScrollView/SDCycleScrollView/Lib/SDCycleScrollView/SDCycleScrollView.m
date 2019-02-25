@@ -29,6 +29,9 @@
  */
 
 
+
+
+
 #import "SDCycleScrollView.h"
 #import "SDCollectionViewCell.h"
 #import "UIView+SDExtension.h"
@@ -78,7 +81,7 @@ NSString * const ID = @"SDCycleScrollViewCell";
     _autoScrollTimeInterval = 2.0;
     _titleLabelTextColor = [UIColor whiteColor];
     _titleLabelTextFont= [UIFont systemFontOfSize:14];
-    _titleLabelBackgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    _titleLabelBackgroundColor = [UIColor clearColor];
     _titleLabelHeight = 30;
     _titleLabelTextAlignment = NSTextAlignmentLeft;
     _autoScroll = YES;
@@ -689,5 +692,8 @@ NSString * const ID = @"SDCycleScrollViewCell";
         [self setupTimer];
     }
 }
+
+
+
 
 @end

@@ -12,10 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WKRegisterManager : NSObject
 
-+ (void)registerNewUserWithUrlString:(nonnull NSString *)UrlString
-                              params:(nonnull NSDictionary *)params
-                             success:(void (^)(id response))success
-                                fail:(void(^)(id error))fail;
++ (void)registerNewUserWithParams:(nonnull NSDictionary *)params
+                          success:(void (^)(id response))success
+                             fail:(void(^)(id error))fail;
+
+
++ (void)LoginWithParams:(nonnull NSDictionary *)params
+                        success:(void (^)(id response))success
+                           fail:(void(^)(id error))fail;
 
 @end
 

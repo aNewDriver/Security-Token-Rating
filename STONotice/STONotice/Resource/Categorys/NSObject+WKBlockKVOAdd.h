@@ -36,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIViewController *)getTopviewControler;
 
+- (BOOL)isLiuHaiScreen;
+
 @end
 
 NS_ASSUME_NONNULL_END

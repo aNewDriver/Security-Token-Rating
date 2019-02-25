@@ -113,4 +113,19 @@ static const int blocks_key;
 }
 
 
+- (BOOL)isLiuHaiScreen {
+    BOOL isLiuHaiScreen = NO;
+    if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {//判断是否是手机
+        return isLiuHaiScreen;
+    }
+    if (@available(iOS 11.0, *)) {
+        UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
+        if (mainWindow.safeAreaInsets.bottom > 0.0) {
+            isLiuHaiScreen = YES;
+        }
+    }
+    return isLiuHaiScreen;
+}
+
+
 @end

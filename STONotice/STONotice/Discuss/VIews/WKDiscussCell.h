@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WKDiscussCell : UITableViewCell
 
+- (void)updateCellWithModel:(WKCommentModel *)model;
+
 @end
 
 NS_ASSUME_NONNULL_END

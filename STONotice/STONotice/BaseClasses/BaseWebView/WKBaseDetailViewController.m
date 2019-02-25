@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.hidesBottomBarWhenPushed = YES;
     [self configureNAV];
     
     // Do any additional setup after loading the view.
@@ -39,6 +40,7 @@
 
 - (void)goBackAction {
     [self.view endEditing:YES];
+    
     if (self.presentingViewController) {
         [self dismissViewControllerAnimated:YES completion:^{
             

@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WKSelfHeaderView : UIView
 
+@property (nonatomic, copy) void(^tapClicked)(void);
+
+
+- (void)updateSelfInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END

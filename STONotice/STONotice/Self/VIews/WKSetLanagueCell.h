@@ -12,6 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WKSetLanagueCell : UITableViewCell
 
+@property (nonatomic, strong) NSIndexPath *indexPath;
+
+- (void)updateCellWithDic:(nonnull NSDictionary *)dic;
+
+- (void)didSelected;
+
+- (void)didDeselected;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,7 +8,7 @@
 
 #import "WKBaseDetailViewController.h"
 
-@interface WKBaseWebViewController :WKBaseDetailViewController
+@interface WKBaseWebViewController : WKBaseDetailViewController
 
 
 @property (nonatomic, copy) NSString *urlString; //!< url

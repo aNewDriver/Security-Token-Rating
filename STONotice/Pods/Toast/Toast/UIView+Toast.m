@@ -464,14 +464,14 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
 - (instancetype)initWithDefaultStyle {
     self = [super init];
     if (self) {
-        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+        self.backgroundColor = [UIColor colorWithRed:151/255 green:151/255 blue:151/255 alpha:0.50f];
         self.titleColor = [UIColor whiteColor];
         self.messageColor = [UIColor whiteColor];
         self.maxWidthPercentage = 0.8;
         self.maxHeightPercentage = 0.8;
         self.horizontalPadding = 10.0;
-        self.verticalPadding = 10.0;
-        self.cornerRadius = 10.0;
+        self.verticalPadding = 20.0;
+        self.cornerRadius = 4.0;
         self.titleFont = [UIFont boldSystemFontOfSize:16.0];
         self.messageFont = [UIFont systemFontOfSize:16.0];
         self.titleAlignment = NSTextAlignmentLeft;

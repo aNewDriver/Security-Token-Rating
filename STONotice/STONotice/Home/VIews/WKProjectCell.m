@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UILabel *priceL;
 @property (nonatomic, strong) UILabel *priceDetailL;
 @property (nonatomic, strong) UIImageView *iconImage;
+@property (nonatomic, strong) UILabel *issuedL;
 
 @end
 
@@ -27,10 +28,130 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self configureUIAndFrame];
-        [self configureTagsWithArray:@[@"Real", @"C+", @"Reg", @"Medium Risk"]];
     }
     return self;
 }
+
+- (void)updateCellWithModel:(WKPostInfoModel *)model {
+    self.nameL.text = model.title.rendered;
+
+    NSString *content = model.content.rendered;
+    
+    NSArray *array = [content componentsSeparatedByString:@"\n"];
+    
+    NSArray *resultA = [self stringArraySub:array startChar:@">" endChar:@"</"];
+    
+    if ([model.categories containsObject:@(WKPostCategary_unIssuedProject)]) {
+        self.issuedL.hidden = YES;
+        self.iconImage.hidden = YES;
+    } else {
+        self.issuedL.hidden = NO;
+        self.iconImage.hidden = NO;
+    }
+    
+    model.resultContentArray = resultA;
+    if (resultA) {
+        
+        NSAttributedString *price = [resultA[5] getAttributedWithLineSpace:3.0f kern:1.0f font:SYSTEM_NORMAL_NAME_FONT(DINTextName, 22.0f)];
+        
+        self.priceL.attributedText = price;
+        
+        NSString *tag = resultA[6];
+        NSArray *tags = [tag componentsSeparatedByString:@";"];
+        
+        [self configureTagsWithArray:tags];
+
+        
+        
+        NSString *imaStr = [resultA[2] subStrAtCharsRangeWithStartChar:@"<img" endChar:@"/>"];
+        NSString *imaUrl = [imaStr subStrAtCharsRangeWithStartChar:@"src=" endChar:@"alt="];
+        NSString *resS = [imaUrl substringWithRange:NSMakeRange(1, imaUrl.length - 3)];
+        
+        [self.imageV sd_setImageWithURL:[NSURL URLWithString:resS] placeholderImage:[UIImage imageNamed:@""] ];
+        [self loadDataModelWithWithModel:model resultA:resultA];
+
+    }
+}
+
+- (void)loadDataModelWithWithModel:(WKPostInfoModel *)model resultA:(NSArray *)resultA { //!< 装载数据
+   
+    if (!model.disscussModel) {
+        model.disscussModel = [[WKDiscussModel alloc] init];
+    }
+    
+    
+    
+    NSString *backIconStr = [resultA[0] subStrAtCharsRangeWithStartChar:@"<img" endChar:@"/>"];
+    NSString *backIconUrl = [backIconStr subStrAtCharsRangeWithStartChar:@"src=" endChar:@"alt="];
+    NSString *backResult = [backIconUrl substringWithRange:NSMakeRange(1, backIconUrl.length - 3)];
+    
+    NSString *iconStr = [resultA[1] subStrAtCharsRangeWithStartChar:@"<img" endChar:@"/>"];
+    NSString *iconUrl = [iconStr subStrAtCharsRangeWithStartChar:@"src=" endChar:@"alt="];
+    NSString *iconResult = [iconUrl substringWithRange:NSMakeRange(1, iconUrl.length - 3)];
+    
+    model.disscussModel.backIconUrl = [backResult stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    model.disscussModel.iconUrl = [iconResult stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    model.disscussModel.titleStr = resultA[3];
+    model.disscussModel.detailStr = resultA[4];
+    
+    
+    if (!model.detailModel) {
+        model.detailModel = [[WKProjectDetailIofo alloc] init];
+        
+    }
+    NSString *imaStr = [resultA[2] subStrAtCharsRangeWithStartChar:@"<img" endChar:@"/>"];
+    NSString *imaUrl = [imaStr subStrAtCharsRangeWithStartChar:@"src=" endChar:@"alt="];
+    NSString *resS = [imaUrl substringWithRange:NSMakeRange(1, imaUrl.length - 3)];
+    
+    model.detailModel.imageUrl = [resS stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    
+    NSString *tag = resultA[6];
+    NSArray *tags = [tag componentsSeparatedByString:@";"];
+    model.detailModel.tags = tags;
+    
+    NSString *categoriesStr = resultA[7];
+    NSArray *categories = [categoriesStr componentsSeparatedByString:@";"];
+    model.detailModel.categories = categories;
+    
+    NSString *summS = resultA[8];
+    NSArray *summA = [summS componentsSeparatedByString:@";"];
+    model.detailModel.summarys = summA;
+    
+    model.detailModel.projectSummary = resultA[9];
+    
+    if (resultA.count > 9) {
+        model.detailModel.teamMember = @[].mutableCopy;
+        for (int i = 10; i < resultA.count; i++) {
+            NSString *str = resultA[i];
+            NSArray *arr = [str componentsSeparatedByString:@"||"];
+            WKProjectTeamMember *tModel = [[WKProjectTeamMember alloc] init];
+            tModel.name = arr[0];
+            tModel.linkUrl = arr[1];
+            tModel.desc = arr[2];
+            [model.detailModel.teamMember addObject:tModel];
+        }
+    }
+    
+    model.haveLoad = YES;
+    
+    [[WKAllProjectModelManager sharedManager] updateModel:model];
+}
+
+
+
+- (NSArray *)stringArraySub:(NSArray *)array startChar:(NSString *)startChar endChar:(NSString *)endChar{
+    NSMutableArray *resultArray = @[].mutableCopy;
+    for (NSString *string in array) {
+        if (![string isEmpty]) {
+            [resultArray addObject:[string subStrAtCharsRangeWithStartChar:startChar endChar:endChar]];
+        }
+    }
+    return resultArray.copy;
+}
+
+
 
 
 #pragma mark - method
@@ -45,6 +166,7 @@
     [self.backView addSubview:self.priceL];
     [self.backView addSubview:self.priceDetailL];
     [self.backView addSubview:self.iconImage];
+    [self.iconImage addSubview:self.issuedL];
     
     [self.shadowView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(5.0f);
@@ -74,7 +196,7 @@
     
     [self.priceL mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.backView.mas_right).offset(-10.0f);
-        make.width.equalTo(@90.0f);
+        make.width.equalTo(self.priceL.mas_width);
         make.height.equalTo(self.priceL.mas_height);
         make.top.equalTo(self.nameL);
     }];
@@ -83,11 +205,14 @@
         make.width.equalTo(@45.0f);
         make.height.equalTo(@16.0f);
     }];
+    [self.issuedL mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.bottom.right.equalTo(self.iconImage);
+    }];
     [self.priceDetailL mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.backView.mas_right).offset(-10.0f);
         make.width.equalTo(self.priceL.mas_width);
         make.height.equalTo(@15.0f);
-        make.top.equalTo(self.priceL.mas_bottom).offset(5.0f);
+        make.top.equalTo(self.priceL.mas_bottom).offset(13.0f);
     }];
 
 }
@@ -100,14 +225,14 @@
     CGFloat left = 15.0f;
     for (NSUInteger i = 0; i < array.count; i++) {
         NSString *tag = array[i];
-        CGSize size = [tag sizeWithAttributes:@{NSFontAttributeName : SYSTEM_NORMAL_FONT(9.0f)}];
+        CGSize size = [tag sizeWithAttributes:@{NSFontAttributeName : SPICAL_FONT(11.0f)}];
         CGFloat width = size.width + 12.0f;
         
         UILabel *tagL = [[UILabel alloc] init];
         tagL.textColor = RGBCOLOR(151, 151, 151);
         tagL.backgroundColor = BACKGROUND_COLOR;
         tagL.textAlignment = NSTextAlignmentCenter;
-        tagL.font = SYSTEM_NORMAL_FONT(9.0f);
+        tagL.font = SPICAL_DETAIL_FONT(11.0f);
         tagL.layer.cornerRadius = 2.0f;
         tagL.layer.masksToBounds = YES;
         tagL.text = tag;
@@ -119,7 +244,7 @@
             make.width.equalTo(@(width));
             make.height.equalTo(@18.0f);
         }];
-        left = width + 12.0f + left;
+        left = width + 6.0f + left;
     }
     
 }
@@ -165,7 +290,7 @@
         _nameL = [[UILabel alloc] init];
         _nameL.textColor = RGBACOLOR(66, 66, 66, 1);
         _nameL.textAlignment = NSTextAlignmentLeft;
-        _nameL.font = SYSTEM_NORMAL_FONT(16.0f);
+        _nameL.font = SPICAL_FONT(18.0f);
         _nameL.text = @"SpiceVC";
     }
     return _nameL;
@@ -176,20 +301,29 @@
         _priceL = [[UILabel alloc] init];
         _priceL.textColor = RGBACOLOR(66, 66, 66, 1);
         _priceL.textAlignment = NSTextAlignmentLeft;
-        _priceL.font = SYSTEM_NORMAL_FONT(20.0f);
-        _priceL.numberOfLines = 2;
+        _priceL.font = SYSTEM_NORMAL_NAME_FONT(DINTextName, 22.0f);
         _priceL.text = @"2,000,000";
     }
     return _priceL;
 }
 
+- (UILabel *)issuedL {
+    if (!_issuedL) {
+        _issuedL = [[UILabel alloc] init];
+        _issuedL.textColor = [UIColor whiteColor];
+        _issuedL.textAlignment = NSTextAlignmentCenter;
+        _issuedL.font = SPICAL_FONT(10.0f);
+        _issuedL.text = WKGetStringWithKeyFromTable(@"issuedText", nil);
+    }
+    return _issuedL;
+}
 - (UILabel *)priceDetailL {
     if (!_priceDetailL) {
         _priceDetailL = [[UILabel alloc] init];
         _priceDetailL.textColor = RGBACOLOR(170, 170, 170, 1);
         _priceDetailL.textAlignment = NSTextAlignmentRight;
-        _priceDetailL.font = SYSTEM_NORMAL_FONT(9.0f);
-        _priceDetailL.text = @"Total Supply";
+        _priceDetailL.font = SPICAL_DETAIL_FONT(11.0f);
+        _priceDetailL.text = WKGetStringWithKeyFromTable(@"totalSupply", nil);
     }
     return _priceDetailL;
 }

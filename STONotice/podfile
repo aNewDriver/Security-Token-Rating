@@ -1,7 +1,7 @@
 platform:ios, '8.0'
 target 'STONotice' do
 
-pod 'SDWebImage', '~> 4.0'
+pod 'SDWebImage'
 pod 'IQKeyboardManager'
 pod 'Masonry' #屏幕适配
 pod 'MBProgressHUD' #提示框

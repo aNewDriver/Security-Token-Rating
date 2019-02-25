@@ -14,6 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WKProjectDiscussCell : UITableViewCell
 
+@property (nonatomic, copy) void (^didSelecetedAtIndexPath)(NSIndexPath *indexPath);
+
+@property (nonatomic, copy) NSArray <WKPostInfoModel *> *projectModelArray;
+
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -15,6 +15,30 @@
 		0E3A984421EDC617009F1ACE /* Community.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E3A984321EDC617009F1ACE /* Community.xcassets */; };
 		0E3A984621EDC76A009F1ACE /* TabberIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E3A984521EDC76A009F1ACE /* TabberIcons.xcassets */; };
 		0E3A984921EDD8AA009F1ACE /* WKSelfHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A984821EDD8AA009F1ACE /* WKSelfHeaderView.m */; };
+		0E3A984C21EECA00009F1ACE /* WKCustomDisNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A984B21EECA00009F1ACE /* WKCustomDisNavBar.m */; };
+		0E3A984F21EEE026009F1ACE /* WKDisDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A984E21EEE026009F1ACE /* WKDisDetailHeaderView.m */; };
+		0E3A985221EF0386009F1ACE /* WKProjectDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A985121EF0386009F1ACE /* WKProjectDetailHeaderView.m */; };
+		0E3A985521EF043F009F1ACE /* WKCustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A985421EF043F009F1ACE /* WKCustomSegmentView.m */; };
+		0E3A985821EF1E80009F1ACE /* WKProjectPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A985721EF1E80009F1ACE /* WKProjectPriceCell.m */; };
+		0E3A985B21EF31C6009F1ACE /* WKNewsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A985A21EF31C6009F1ACE /* WKNewsDetailVC.m */; };
+		0E3A985E21EF3218009F1ACE /* WKNewsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A985D21EF3218009F1ACE /* WKNewsDetailCell.m */; };
+		0E3A986121EF351B009F1ACE /* WKNewsDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A986021EF351B009F1ACE /* WKNewsDetailHeader.m */; };
+		0E3A986421EF3B50009F1ACE /* WKAboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A986321EF3B50009F1ACE /* WKAboutUsVC.m */; };
+		0E3A986A21F1AE97009F1ACE /* NSAttributedString+WKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A986921F1AE97009F1ACE /* NSAttributedString+WKAdd.m */; };
+		0E3A986D21F1C627009F1ACE /* WKHomeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A986C21F1C627009F1ACE /* WKHomeManager.m */; };
+		0E3A987421F5A4E8009F1ACE /* WKCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A987321F5A4E8009F1ACE /* WKCommentModel.m */; };
+		0E3A987721F5B941009F1ACE /* WKNewsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A987621F5B941009F1ACE /* WKNewsManager.m */; };
+		0E3A987A21F5C138009F1ACE /* WKDiscussManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A987921F5C138009F1ACE /* WKDiscussManager.m */; };
+		0E3A987E21F6CFF7009F1ACE /* WKAllProjectModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A987D21F6CFF7009F1ACE /* WKAllProjectModelManager.m */; };
+		0E3A988121F80CB5009F1ACE /* WKLoginRegiserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A988021F80CB5009F1ACE /* WKLoginRegiserInfoModel.m */; };
+		0E3A988421F81195009F1ACE /* WKLoginInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A988321F81195009F1ACE /* WKLoginInfoManager.m */; };
+		0E3A988721F9656C009F1ACE /* UIButton+WKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A988621F9656C009F1ACE /* UIButton+WKAdd.m */; };
+		0E3A988A21F9B35E009F1ACE /* UIColor+WKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A988921F9B35E009F1ACE /* UIColor+WKAdd.m */; };
+		0E9DEC3821F9BBBE00E855EB /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E9DEC3721F9BBBE00E855EB /* SF-Pro-Text-Medium.otf */; };
+		0E9DEC3C21FEE69900E855EB /* UIFont+Adjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9DEC3B21FEE69900E855EB /* UIFont+Adjust.m */; };
+		0E9DEC3E21FEEFF100E855EB /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E9DEC3D21FEED3500E855EB /* SF-Pro-Text-Regular.otf */; };
+		0E9DEC3F21FEEFFA00E855EB /* DIN-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E9DEC3921F9BEAD00E855EB /* DIN-Medium.otf */; };
+		0E9DEC422200402600E855EB /* WKAboutUsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9DEC412200402600E855EB /* WKAboutUsCell.m */; };
 		0EBEECEE21E45EAD0010E6FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBEECED21E45EAD0010E6FA /* AppDelegate.m */; };
 		0EBEECF421E45EAD0010E6FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EBEECF221E45EAD0010E6FA /* Main.storyboard */; };
 		0EBEECF621E45EAF0010E6FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EBEECF521E45EAF0010E6FA /* Assets.xcassets */; };
@@ -43,7 +67,6 @@
 		0EBEED9221E588690010E6FA /* WKRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBEED9121E588690010E6FA /* WKRegisterVC.m */; };
 		0EBEED9521E588760010E6FA /* WKLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBEED9421E588760010E6FA /* WKLoginVC.m */; };
 		0EBEED9821E58ACB0010E6FA /* NSString+WKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBEED9721E58ACB0010E6FA /* NSString+WKAdd.m */; };
-		0EBEED9B21E592190010E6FA /* UIViewController+WKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBEED9A21E592190010E6FA /* UIViewController+WKAdd.m */; };
 		0EBEEDA221E5AF250010E6FA /* WKSelfCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBEEDA121E5AF250010E6FA /* WKSelfCell.m */; };
 		0EBEEDA621E5D1130010E6FA /* WKNewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBEEDA521E5D1130010E6FA /* WKNewCell.m */; };
 		0EBEEDA921E6E7950010E6FA /* WKRegisterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBEEDA821E6E7950010E6FA /* WKRegisterManager.m */; };
@@ -93,6 +116,52 @@
 		0E3A984521EDC76A009F1ACE /* TabberIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TabberIcons.xcassets; sourceTree = "<group>"; };
 		0E3A984721EDD8AA009F1ACE /* WKSelfHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKSelfHeaderView.h; sourceTree = "<group>"; };
 		0E3A984821EDD8AA009F1ACE /* WKSelfHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKSelfHeaderView.m; sourceTree = "<group>"; };
+		0E3A984A21EECA00009F1ACE /* WKCustomDisNavBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKCustomDisNavBar.h; sourceTree = "<group>"; };
+		0E3A984B21EECA00009F1ACE /* WKCustomDisNavBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKCustomDisNavBar.m; sourceTree = "<group>"; };
+		0E3A984D21EEE026009F1ACE /* WKDisDetailHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKDisDetailHeaderView.h; sourceTree = "<group>"; };
+		0E3A984E21EEE026009F1ACE /* WKDisDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKDisDetailHeaderView.m; sourceTree = "<group>"; };
+		0E3A985021EF0386009F1ACE /* WKProjectDetailHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKProjectDetailHeaderView.h; sourceTree = "<group>"; };
+		0E3A985121EF0386009F1ACE /* WKProjectDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKProjectDetailHeaderView.m; sourceTree = "<group>"; };
+		0E3A985321EF043F009F1ACE /* WKCustomSegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKCustomSegmentView.h; sourceTree = "<group>"; };
+		0E3A985421EF043F009F1ACE /* WKCustomSegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKCustomSegmentView.m; sourceTree = "<group>"; };
+		0E3A985621EF1E80009F1ACE /* WKProjectPriceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKProjectPriceCell.h; sourceTree = "<group>"; };
+		0E3A985721EF1E80009F1ACE /* WKProjectPriceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKProjectPriceCell.m; sourceTree = "<group>"; };
+		0E3A985921EF31C6009F1ACE /* WKNewsDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKNewsDetailVC.h; sourceTree = "<group>"; };
+		0E3A985A21EF31C6009F1ACE /* WKNewsDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKNewsDetailVC.m; sourceTree = "<group>"; };
+		0E3A985C21EF3218009F1ACE /* WKNewsDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKNewsDetailCell.h; sourceTree = "<group>"; };
+		0E3A985D21EF3218009F1ACE /* WKNewsDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKNewsDetailCell.m; sourceTree = "<group>"; };
+		0E3A985F21EF351B009F1ACE /* WKNewsDetailHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKNewsDetailHeader.h; sourceTree = "<group>"; };
+		0E3A986021EF351B009F1ACE /* WKNewsDetailHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKNewsDetailHeader.m; sourceTree = "<group>"; };
+		0E3A986221EF3B50009F1ACE /* WKAboutUsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKAboutUsVC.h; sourceTree = "<group>"; };
+		0E3A986321EF3B50009F1ACE /* WKAboutUsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKAboutUsVC.m; sourceTree = "<group>"; };
+		0E3A986821F1AE97009F1ACE /* NSAttributedString+WKAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+WKAdd.h"; sourceTree = "<group>"; };
+		0E3A986921F1AE97009F1ACE /* NSAttributedString+WKAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+WKAdd.m"; sourceTree = "<group>"; };
+		0E3A986B21F1C627009F1ACE /* WKHomeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKHomeManager.h; sourceTree = "<group>"; };
+		0E3A986C21F1C627009F1ACE /* WKHomeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKHomeManager.m; sourceTree = "<group>"; };
+		0E3A987021F1C9F8009F1ACE /* WKUrls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKUrls.h; sourceTree = "<group>"; };
+		0E3A987221F5A4E8009F1ACE /* WKCommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKCommentModel.h; sourceTree = "<group>"; };
+		0E3A987321F5A4E8009F1ACE /* WKCommentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKCommentModel.m; sourceTree = "<group>"; };
+		0E3A987521F5B941009F1ACE /* WKNewsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKNewsManager.h; sourceTree = "<group>"; };
+		0E3A987621F5B941009F1ACE /* WKNewsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKNewsManager.m; sourceTree = "<group>"; };
+		0E3A987821F5C138009F1ACE /* WKDiscussManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKDiscussManager.h; sourceTree = "<group>"; };
+		0E3A987921F5C138009F1ACE /* WKDiscussManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKDiscussManager.m; sourceTree = "<group>"; };
+		0E3A987C21F6CFF7009F1ACE /* WKAllProjectModelManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKAllProjectModelManager.h; sourceTree = "<group>"; };
+		0E3A987D21F6CFF7009F1ACE /* WKAllProjectModelManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKAllProjectModelManager.m; sourceTree = "<group>"; };
+		0E3A987F21F80CB5009F1ACE /* WKLoginRegiserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKLoginRegiserInfoModel.h; sourceTree = "<group>"; };
+		0E3A988021F80CB5009F1ACE /* WKLoginRegiserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKLoginRegiserInfoModel.m; sourceTree = "<group>"; };
+		0E3A988221F81195009F1ACE /* WKLoginInfoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKLoginInfoManager.h; sourceTree = "<group>"; };
+		0E3A988321F81195009F1ACE /* WKLoginInfoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKLoginInfoManager.m; sourceTree = "<group>"; };
+		0E3A988521F9656C009F1ACE /* UIButton+WKAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+WKAdd.h"; sourceTree = "<group>"; };
+		0E3A988621F9656C009F1ACE /* UIButton+WKAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WKAdd.m"; sourceTree = "<group>"; };
+		0E3A988821F9B35E009F1ACE /* UIColor+WKAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+WKAdd.h"; sourceTree = "<group>"; };
+		0E3A988921F9B35E009F1ACE /* UIColor+WKAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WKAdd.m"; sourceTree = "<group>"; };
+		0E9DEC3721F9BBBE00E855EB /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
+		0E9DEC3921F9BEAD00E855EB /* DIN-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Medium.otf"; sourceTree = "<group>"; };
+		0E9DEC3A21FEE69900E855EB /* UIFont+Adjust.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+Adjust.h"; sourceTree = "<group>"; };
+		0E9DEC3B21FEE69900E855EB /* UIFont+Adjust.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Adjust.m"; sourceTree = "<group>"; };
+		0E9DEC3D21FEED3500E855EB /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
+		0E9DEC402200402600E855EB /* WKAboutUsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKAboutUsCell.h; sourceTree = "<group>"; };
+		0E9DEC412200402600E855EB /* WKAboutUsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKAboutUsCell.m; sourceTree = "<group>"; };
 		0EBEECE921E45EAD0010E6FA /* STONotice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STONotice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EBEECEC21E45EAD0010E6FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0EBEECED21E45EAD0010E6FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -173,8 +242,6 @@
 		0EBEED9421E588760010E6FA /* WKLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKLoginVC.m; sourceTree = "<group>"; };
 		0EBEED9621E58ACB0010E6FA /* NSString+WKAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+WKAdd.h"; sourceTree = "<group>"; };
 		0EBEED9721E58ACB0010E6FA /* NSString+WKAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+WKAdd.m"; sourceTree = "<group>"; };
-		0EBEED9921E592190010E6FA /* UIViewController+WKAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WKAdd.h"; sourceTree = "<group>"; };
-		0EBEED9A21E592190010E6FA /* UIViewController+WKAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WKAdd.m"; sourceTree = "<group>"; };
 		0EBEEDA021E5AF250010E6FA /* WKSelfCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKSelfCell.h; sourceTree = "<group>"; };
 		0EBEEDA121E5AF250010E6FA /* WKSelfCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKSelfCell.m; sourceTree = "<group>"; };
 		0EBEEDA421E5D1130010E6FA /* WKNewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKNewCell.h; sourceTree = "<group>"; };
@@ -247,6 +314,16 @@
 				C6F8B8B3A13D7E6C782C92D0 /* Pods-STONotice.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		0E9DEC3621F9BBBE00E855EB /* OutsideFont */ = {
+			isa = PBXGroup;
+			children = (
+				0E9DEC3721F9BBBE00E855EB /* SF-Pro-Text-Medium.otf */,
+				0E9DEC3921F9BEAD00E855EB /* DIN-Medium.otf */,
+				0E9DEC3D21FEED3500E855EB /* SF-Pro-Text-Regular.otf */,
+			);
+			path = OutsideFont;
 			sourceTree = "<group>";
 		};
 		0EBEECE021E45EAD0010E6FA = {
@@ -325,6 +402,7 @@
 			children = (
 				0EBEED1F21E4730A0010E6FA /* Headers.pch */,
 				0EBEED2021E4730A0010E6FA /* WKDefines.h */,
+				0E3A987021F1C9F8009F1ACE /* WKUrls.h */,
 			);
 			path = Untils;
 			sourceTree = "<group>";
@@ -332,6 +410,7 @@
 		0EBEED2121E4730A0010E6FA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0E9DEC3621F9BBBE00E855EB /* OutsideFont */,
 				0EBEED2221E4730A0010E6FA /* CustomTools */,
 				0EBEED2921E4730A0010E6FA /* Categorys */,
 			);
@@ -353,6 +432,10 @@
 				0EBEEDB421E72D3C0010E6FA /* WKLanguageTool.m */,
 				0E3A983A21EDB932009F1ACE /* NSObject+WKGradientAdd.h */,
 				0E3A983B21EDB932009F1ACE /* NSObject+WKGradientAdd.m */,
+				0E3A986821F1AE97009F1ACE /* NSAttributedString+WKAdd.h */,
+				0E3A986921F1AE97009F1ACE /* NSAttributedString+WKAdd.m */,
+				0E3A987C21F6CFF7009F1ACE /* WKAllProjectModelManager.h */,
+				0E3A987D21F6CFF7009F1ACE /* WKAllProjectModelManager.m */,
 			);
 			path = CustomTools;
 			sourceTree = "<group>";
@@ -366,12 +449,16 @@
 				0EBEED5421E47D330010E6FA /* UINavigationController+WKNavAdd.m */,
 				0EBEED9621E58ACB0010E6FA /* NSString+WKAdd.h */,
 				0EBEED9721E58ACB0010E6FA /* NSString+WKAdd.m */,
-				0EBEED9921E592190010E6FA /* UIViewController+WKAdd.h */,
-				0EBEED9A21E592190010E6FA /* UIViewController+WKAdd.m */,
+				0E3A988521F9656C009F1ACE /* UIButton+WKAdd.h */,
+				0E3A988621F9656C009F1ACE /* UIButton+WKAdd.m */,
 				0EBEEDD421EC7DAB0010E6FA /* UITextView+WKPlaceHolder.h */,
 				0EBEEDD521EC7DAB0010E6FA /* UITextView+WKPlaceHolder.m */,
 				0E3A983421ED6F95009F1ACE /* UIView+WKAdd.h */,
 				0E3A983521ED6F95009F1ACE /* UIView+WKAdd.m */,
+				0E3A988821F9B35E009F1ACE /* UIColor+WKAdd.h */,
+				0E3A988921F9B35E009F1ACE /* UIColor+WKAdd.m */,
+				0E9DEC3A21FEE69900E855EB /* UIFont+Adjust.h */,
+				0E9DEC3B21FEE69900E855EB /* UIFont+Adjust.m */,
 			);
 			path = Categorys;
 			sourceTree = "<group>";
@@ -421,6 +508,8 @@
 		0EBEED4021E475BD0010E6FA /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				0E3A986B21F1C627009F1ACE /* WKHomeManager.h */,
+				0E3A986C21F1C627009F1ACE /* WKHomeManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -430,6 +519,8 @@
 			children = (
 				0EBEED7B21E4A3200010E6FA /* WKPostInfoModel.h */,
 				0EBEED7C21E4A3200010E6FA /* WKPostInfoModel.m */,
+				0E3A987221F5A4E8009F1ACE /* WKCommentModel.h */,
+				0E3A987321F5A4E8009F1ACE /* WKCommentModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -477,6 +568,8 @@
 				0EBEED4E21E476550010E6FA /* WKSelfViewController.m */,
 				0EBEEDB621E738F60010E6FA /* WKSetLanagueVC.h */,
 				0EBEEDB721E738F60010E6FA /* WKSetLanagueVC.m */,
+				0E3A986221EF3B50009F1ACE /* WKAboutUsVC.h */,
+				0E3A986321EF3B50009F1ACE /* WKAboutUsVC.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -495,6 +588,8 @@
 		0EBEED7F21E4AF8C0010E6FA /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				0E3A987521F5B941009F1ACE /* WKNewsManager.h */,
+				0E3A987621F5B941009F1ACE /* WKNewsManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -511,6 +606,8 @@
 			children = (
 				0EBEED8621E4AFEF0010E6FA /* WKNewsViewController.h */,
 				0EBEED8721E4AFEF0010E6FA /* WKNewsViewController.m */,
+				0E3A985921EF31C6009F1ACE /* WKNewsDetailVC.h */,
+				0E3A985A21EF31C6009F1ACE /* WKNewsDetailVC.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -529,6 +626,8 @@
 		0EBEED8321E4AFBB0010E6FA /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				0E3A987821F5C138009F1ACE /* WKDiscussManager.h */,
+				0E3A987921F5C138009F1ACE /* WKDiscussManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -569,6 +668,8 @@
 			children = (
 				0EBEEDA721E6E7950010E6FA /* WKRegisterManager.h */,
 				0EBEEDA821E6E7950010E6FA /* WKRegisterManager.m */,
+				0E3A988221F81195009F1ACE /* WKLoginInfoManager.h */,
+				0E3A988321F81195009F1ACE /* WKLoginInfoManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -576,6 +677,8 @@
 		0EBEED8E21E5884F0010E6FA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0E3A987F21F80CB5009F1ACE /* WKLoginRegiserInfoModel.h */,
+				0E3A988021F80CB5009F1ACE /* WKLoginRegiserInfoModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -596,6 +699,8 @@
 			children = (
 				0EBEEDA021E5AF250010E6FA /* WKSelfCell.h */,
 				0EBEEDA121E5AF250010E6FA /* WKSelfCell.m */,
+				0E9DEC402200402600E855EB /* WKAboutUsCell.h */,
+				0E9DEC412200402600E855EB /* WKAboutUsCell.m */,
 				0EBEEDB921E739340010E6FA /* WKSetLanagueCell.h */,
 				0EBEEDBA21E739340010E6FA /* WKSetLanagueCell.m */,
 				0E3A984721EDD8AA009F1ACE /* WKSelfHeaderView.h */,
@@ -617,6 +722,10 @@
 				0EBEEDC621EC30EE0010E6FA /* WKTopicDisCell.m */,
 				0EBEEDCB21EC68F20010E6FA /* WKCommentView.h */,
 				0EBEEDCC21EC68F20010E6FA /* WKCommentView.m */,
+				0E3A984A21EECA00009F1ACE /* WKCustomDisNavBar.h */,
+				0E3A984B21EECA00009F1ACE /* WKCustomDisNavBar.m */,
+				0E3A984D21EEE026009F1ACE /* WKDisDetailHeaderView.h */,
+				0E3A984E21EEE026009F1ACE /* WKDisDetailHeaderView.m */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -626,8 +735,14 @@
 			children = (
 				0EBEEDB021E71C180010E6FA /* WKProjectIntroduceCell.h */,
 				0EBEEDB121E71C180010E6FA /* WKProjectIntroduceCell.m */,
+				0E3A985621EF1E80009F1ACE /* WKProjectPriceCell.h */,
+				0E3A985721EF1E80009F1ACE /* WKProjectPriceCell.m */,
 				0EBEEDBC21EC1AFF0010E6FA /* WKProjectCell.h */,
 				0EBEEDBD21EC1AFF0010E6FA /* WKProjectCell.m */,
+				0E3A985021EF0386009F1ACE /* WKProjectDetailHeaderView.h */,
+				0E3A985121EF0386009F1ACE /* WKProjectDetailHeaderView.m */,
+				0E3A985321EF043F009F1ACE /* WKCustomSegmentView.h */,
+				0E3A985421EF043F009F1ACE /* WKCustomSegmentView.m */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -645,6 +760,10 @@
 			children = (
 				0EBEEDA421E5D1130010E6FA /* WKNewCell.h */,
 				0EBEEDA521E5D1130010E6FA /* WKNewCell.m */,
+				0E3A985C21EF3218009F1ACE /* WKNewsDetailCell.h */,
+				0E3A985D21EF3218009F1ACE /* WKNewsDetailCell.m */,
+				0E3A985F21EF351B009F1ACE /* WKNewsDetailHeader.h */,
+				0E3A986021EF351B009F1ACE /* WKNewsDetailHeader.m */,
 			);
 			name = VIews;
 			path = STONotice/News/VIews;
@@ -769,11 +888,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E9DEC3F21FEEFFA00E855EB /* DIN-Medium.otf in Resources */,
+				0E9DEC3E21FEEFF100E855EB /* SF-Pro-Text-Regular.otf in Resources */,
 				0EBEED6F21E481AD0010E6FA /* Localizable.strings in Resources */,
 				0E3A983E21EDC5EA009F1ACE /* Self.xcassets in Resources */,
 				0E3A984421EDC617009F1ACE /* Community.xcassets in Resources */,
 				0EBEECF921E45EAF0010E6FA /* LaunchScreen.storyboard in Resources */,
 				0EBEED6421E47FF70010E6FA /* InfoPlist.strings in Resources */,
+				0E9DEC3821F9BBBE00E855EB /* SF-Pro-Text-Medium.otf in Resources */,
 				0EBEECF621E45EAF0010E6FA /* Assets.xcassets in Resources */,
 				0E3A984021EDC5F9009F1ACE /* Projects.xcassets in Resources */,
 				0E3A984221EDC607009F1ACE /* News.xcassets in Resources */,
@@ -855,31 +977,48 @@
 				0EBEED3821E4730A0010E6FA /* WKMakerUrlProtocol.m in Sources */,
 				0EBEEDC721EC30EE0010E6FA /* WKTopicDisCell.m in Sources */,
 				0EBEEDD021EC6FF90010E6FA /* WKCommentVC.m in Sources */,
+				0E3A987E21F6CFF7009F1ACE /* WKAllProjectModelManager.m in Sources */,
+				0E3A985521EF043F009F1ACE /* WKCustomSegmentView.m in Sources */,
 				0E3A983C21EDB932009F1ACE /* NSObject+WKGradientAdd.m in Sources */,
+				0E3A985B21EF31C6009F1ACE /* WKNewsDetailVC.m in Sources */,
 				0EBEEDAF21E6F90E0010E6FA /* WKDiscussCell.m in Sources */,
 				0EBEEDC121EC260E0010E6FA /* WKProjectDiscussCell.m in Sources */,
 				0EBEED7D21E4A3200010E6FA /* WKPostInfoModel.m in Sources */,
+				0E3A987421F5A4E8009F1ACE /* WKCommentModel.m in Sources */,
 				0EBEEDBE21EC1AFF0010E6FA /* WKProjectCell.m in Sources */,
+				0E3A986421EF3B50009F1ACE /* WKAboutUsVC.m in Sources */,
 				0EBEEDA621E5D1130010E6FA /* WKNewCell.m in Sources */,
+				0E3A984C21EECA00009F1ACE /* WKCustomDisNavBar.m in Sources */,
 				0E3A983621ED6F95009F1ACE /* UIView+WKAdd.m in Sources */,
 				0EBEEDCD21EC68F20010E6FA /* WKCommentView.m in Sources */,
 				0EBEED9221E588690010E6FA /* WKRegisterVC.m in Sources */,
+				0E3A986D21F1C627009F1ACE /* WKHomeManager.m in Sources */,
+				0E3A985E21EF3218009F1ACE /* WKNewsDetailCell.m in Sources */,
+				0E9DEC3C21FEE69900E855EB /* UIFont+Adjust.m in Sources */,
 				0EBEEDB821E738F60010E6FA /* WKSetLanagueVC.m in Sources */,
+				0E3A988721F9656C009F1ACE /* UIButton+WKAdd.m in Sources */,
+				0E3A988421F81195009F1ACE /* WKLoginInfoManager.m in Sources */,
 				0EBEEDB221E71C180010E6FA /* WKProjectIntroduceCell.m in Sources */,
+				0E9DEC422200402600E855EB /* WKAboutUsCell.m in Sources */,
 				0EBEED3A21E4730A0010E6FA /* NSObject+WKBlockKVOAdd.m in Sources */,
 				0EBEEDA221E5AF250010E6FA /* WKSelfCell.m in Sources */,
 				0EBEED8B21E4B00F0010E6FA /* WKDiscussViewController.m in Sources */,
 				0EBEED9821E58ACB0010E6FA /* NSString+WKAdd.m in Sources */,
 				0EBEEDA921E6E7950010E6FA /* WKRegisterManager.m in Sources */,
-				0EBEED9B21E592190010E6FA /* UIViewController+WKAdd.m in Sources */,
+				0E3A987721F5B941009F1ACE /* WKNewsManager.m in Sources */,
 				0EBEEDB521E72D3C0010E6FA /* WKLanguageTool.m in Sources */,
 				0EBEEDCA21EC35650010E6FA /* WKDisDdetailVC.m in Sources */,
+				0E3A985221EF0386009F1ACE /* WKProjectDetailHeaderView.m in Sources */,
+				0E3A986A21F1AE97009F1ACE /* NSAttributedString+WKAdd.m in Sources */,
 				0EBEED3721E4730A0010E6FA /* WKWeakProxy.m in Sources */,
 				0EBEEDC421EC265B0010E6FA /* WKDisCollectionViewCell.m in Sources */,
+				0E3A984F21EEE026009F1ACE /* WKDisDetailHeaderView.m in Sources */,
+				0E3A986121EF351B009F1ACE /* WKNewsDetailHeader.m in Sources */,
 				0EBEED4C21E476410010E6FA /* WKHomeViewController.m in Sources */,
 				0EBEED3921E4730A0010E6FA /* WKURLSessionConfigurationManager.m in Sources */,
 				0EBEED7A21E491220010E6FA /* WKRequestManager.m in Sources */,
 				0EBEED3D21E4730A0010E6FA /* WKBaseViewController.m in Sources */,
+				0E3A987A21F5C138009F1ACE /* WKDiscussManager.m in Sources */,
 				0EBEEDAC21E6F83A0010E6FA /* WKProjectDetailVC.m in Sources */,
 				0EBEEDD621EC7DAB0010E6FA /* UITextView+WKPlaceHolder.m in Sources */,
 				0EBEED3E21E4730A0010E6FA /* WKBaseListViewController.m in Sources */,
@@ -889,9 +1028,12 @@
 				0EBEED5521E47D330010E6FA /* UINavigationController+WKNavAdd.m in Sources */,
 				0EBEED3C21E4730A0010E6FA /* WKBaseWebViewController.m in Sources */,
 				0EBEED4F21E476550010E6FA /* WKSelfViewController.m in Sources */,
+				0E3A988121F80CB5009F1ACE /* WKLoginRegiserInfoModel.m in Sources */,
 				0EBEED4521E475F10010E6FA /* WKMainViewController.m in Sources */,
+				0E3A985821EF1E80009F1ACE /* WKProjectPriceCell.m in Sources */,
 				0EBEECEE21E45EAD0010E6FA /* AppDelegate.m in Sources */,
 				0E3A984921EDD8AA009F1ACE /* WKSelfHeaderView.m in Sources */,
+				0E3A988A21F9B35E009F1ACE /* UIColor+WKAdd.m in Sources */,
 				0EBEED9521E588760010E6FA /* WKLoginVC.m in Sources */,
 				0EBEED8821E4AFEF0010E6FA /* WKNewsViewController.m in Sources */,
 			);
@@ -1107,7 +1249,9 @@
 			baseConfigurationReference = 70D7E37B42E2D9B13451C6F9 /* Pods-STONotice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = FYD84MLV78;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/kewang/Desktop/STOAPP/STONotice/STONotice/Untils/Headers.pch;
@@ -1117,9 +1261,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Bankoruc.Security-Token-Ratings";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Bankoruc.SecurityTokenRatings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE_SPECIFIER = "Bankorus STO Rating Distribution";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1128,7 +1273,9 @@
 			baseConfigurationReference = C6F8B8B3A13D7E6C782C92D0 /* Pods-STONotice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = FYD84MLV78;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/kewang/Desktop/STOAPP/STONotice/STONotice/Untils/Headers.pch;
@@ -1138,9 +1285,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Bankoruc.Security-Token-Ratings";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Bankoruc.SecurityTokenRatings;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE_SPECIFIER = "Bankorus STO Rating Distribution";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

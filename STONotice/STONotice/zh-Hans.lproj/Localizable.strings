@@ -6,17 +6,136 @@
   Copyright © 2019年 Bankrous.inc. All rights reserved.
 */
 
-"homeTabbarTitle" = "首页";
-"newsTabberTitle" = "资讯";
-"discussTabberTitle" = "讨论";
-"selfTabbarTitle" = "我的";
+/********************  ↓ ********************/
+/********************  ↑ ********************/
 
+
+/******************** tabbar ↓ ********************/
+
+"homeTabbarTitle" = "项目";
+"newsTabberTitle" = "资讯";
+"discussTabberTitle" = "讨论区";
+"selfTabbarTitle" = "设置";
+
+/******************** tabbar ↑ ********************/
+
+
+/******************** 登陆注册 ↓ ********************/
+
+"loginFail" = "登录失败";
 "registerTitle" = "注册";
 "loginTitle" = "登录";
-"userName" = "用户名";
+"userName" = "昵称";
 "email" = "邮箱";
 "password" = "密码";
-"confirmPassword" = "重复密码";
-"loginBtn" = "继续";
+"confirmPassword" = "确认密码";
+"loginBtn" = "登陆";
 "forgotPSW" = "忘记密码?";
+"emailPlaceHoder" = "You@example.com"; //!< 邮箱P
+"nicknamePlaceHoder" = "给自己取一个有趣的昵称"; //!< 昵称P
+"registerPasswordPlaceHoder" = "8-20个字符";
+"passwordPlaceHoder" = "请输入密码";//!< 密码P
+"verifyPlaceHoder" = "再次输入密码";//!< 重复P
+"don't have account" = "还没有账户? 注册";//!< 没有账户
+"already have account" = "已经注册? 登录";//!< 已有账户
+"enterNickName" = "输入您的昵称";
+
+
+"emailEmpty" = "邮箱不能为空";
+"emailFormatWrong" = "输入的电子邮箱格式错误";
+"emailNumberWrong" = "输入的电子邮箱超出30字符";
+"emailHaveExist" = "该邮箱已存在";
+
+"nickNameEmpty" = "昵称不能为空";
+"nickNumberWrong" = "输入的昵称超出10字符";
+"nickHaveExist" = "该昵称已存在";
+
+
+"passwordEmpty" = "密码不能为空";
+"passwordFormatWrong" = "密码必须包含大、小写字母和数字";
+"passwordNumberWrong" = "密码长度需为8-20个字符";
+
+"cPasswordEmpty" = "确认密码不能为空";
+"cPasswordNotMatch" = "两次输入的密码不一致";
+
+"loginFailPassword" = "昵称或密码错误";
+"loginFail" = "登录失败";
+
+
+/******************** 登录注册 ↑ ********************/
+
+/******************** 首页 ↓ ********************/
+"homeTitle" = "首家Security Token评级平台\n重磅来袭";
+"totalSupply" = "发行总量";
+"issuedText" = "已上市";
+"unList" = "未上市";
+
+/******************** 首页 ↑ ********************/
+
+/******************** 项目详情 ↓ ********************/
+"projectDetailTitle" = "项目详情";
+"category" = "风险类别";
+"rating" = "项目评级";
+"summary" = "项目摘要";
+"teamMember" = "团队";
+"discussion" = "最新讨论";
+"price" = "价格";
+"priceUpdateTime" = "价格更新时间";
+"regulationComply" = "Reg分类";
+"riskLevel" = "项目类型";
+"officialWebsite" = "官方网站";
+"joinButton" = "进入讨论区";
+
+/******************** 项目详情 ↑ ********************/
+
+
+/******************** 资讯详情 ↓ ********************/
+"newsDetailtitle" = "资讯详情";
+/******************** 资讯详情 ↑ ********************/
+
+
+/******************** 讨论区 ↓ ********************/
+
+
+"projectDiscuss" = "项目讨论区";
+"topicDiscuss" = "话题讨论区";
+"views" = "阅读";
+"comments" = "评论";
+"postSuccess" = "发布成功，审核通过后该评论将显示出来";
+"commentConfilct" = "您已提交过该评论，请耐心等待审核或发表新的评论";
+
+/******************** 讨论区 ↑ ********************/
+
+/******************** 讨论区详情 ↓ ********************/
+
+"sendComment" = "    发表评论...";
+"commentVCTitle" = "评论";
+"send" = "发布";
+"commentPlaceHolder" = "写下你的想法（请将字数控制在400字以内）";
+"projectDetail" = "项目详情";
+"noComment" = "暂无评论";
+"pleaseInput" = "请输入评论内容";
+
+/******************** 讨论区详情 ↑ ********************/
+
+
+/******************** 我的 ↓ ********************/
+
+"displayLanguage" = "显示语言";
+"aboutUs" = "关于我们";
+"logOut" = "登出";
+"save" = "保存";
+"webTitle" = "官方网站";
+"telegram" = "Telegram";
+"customerServer" = "客服邮箱";
+"tapToLogin" = "点击登录";
+"Logoutsuccess" = "登出成功!";
+"setting" = "设置";
+
+
+
+/******************** 我的 ↑ ********************/
+
+
+
 

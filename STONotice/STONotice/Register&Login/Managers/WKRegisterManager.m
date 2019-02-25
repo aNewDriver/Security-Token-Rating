@@ -10,15 +10,39 @@
 
 @implementation WKRegisterManager
 
-+ (void)registerNewUserWithUrlString:(nonnull NSString *)UrlString
-                              params:(nonnull NSDictionary *)params
-                             success:(void (^)(id response))success
-                                 fail:(void(^)(id error))fail {
-    [WKRequestManager requestWithURLString:UrlString
-                                parameters:params
-                                      type:WKHTTPRequestMethodTypePOST
-                                   success:success
-                                   failure:fail];
++ (void)registerNewUserWithParams:(nonnull NSDictionary *)params
+                          success:(void (^)(id response))success
+                             fail:(void(^)(id error))fail {
+    
+    if (!params) {
+        return;
+    }
+    
+    [WKRequestManager specialPostRequestWithURLString:RegisterUrl
+                                           parameters:params
+                                              success:success
+                                              failure:fail];
+   
+    
 }
+
+
++ (void)LoginWithParams:(nonnull NSDictionary *)params
+                        success:(void (^)(id response))success
+                           fail:(void(^)(id error))fail {
+    
+    if (!params) {
+        return;
+    }
+    
+    [WKRequestManager specialPostRequestWithURLString:LoginUrl
+                                           parameters:params
+                                              success:success
+                                              failure:success];
+}
+
+
+
+
 
 @end

@@ -39,6 +39,14 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setNewLanguage:(NSString*)language;
 
 
+/**
+ j获取当前的语言
+
+ @return 当前的语言
+ */
+- (NSString *)currentLanague;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

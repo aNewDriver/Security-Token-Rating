@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
               reuseIdentifier:(NSString *)reuseIdentifier
      ProjectIntroduceCellType:(ProjectIntroduceCellType)projectIntroduceCellType;
 
+- (void)updateCellWithModel:(WKPostInfoModel *)model index:(NSUInteger)index;
+
 @end
 
 NS_ASSUME_NONNULL_END

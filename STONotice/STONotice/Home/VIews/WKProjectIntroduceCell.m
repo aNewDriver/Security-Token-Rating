@@ -7,6 +7,7 @@
 //
 
 #import "WKProjectIntroduceCell.h"
+#import "WKBaseWebViewController.h"
 
 @interface WKProjectIntroduceCell ()
 
@@ -14,6 +15,7 @@
 @property (nonatomic, strong) UILabel *detailLabel;
 @property (nonatomic, strong) UIButton *linkBtn;
 @property (nonatomic, assign) ProjectIntroduceCellType projectIntroduceCellType;
+@property (nonatomic, copy) NSString *URLString;
 
 @end
 
@@ -27,6 +29,27 @@
     }
     return self;
 }
+
+- (void)updateCellWithModel:(WKPostInfoModel *)model index:(NSUInteger)index{
+    if (self.projectIntroduceCellType == ProjectIntroduceCellType_haveName) { //!< 有名字
+        if (model.detailModel.teamMember) {
+            WKProjectTeamMember *tModel = model.detailModel.teamMember[index];
+            self.nameLabel.text = tModel.name;
+            self.detailLabel.attributedText = [tModel.desc attStrEncodeWithFont:SPICAL_DETAIL_FONT(14.0f) textColor:DetailTextColor textAlignment:NSTextAlignmentLeft];
+            self.URLString = tModel.linkUrl;
+            if ([self.URLString isEmpty]) {
+                self.linkBtn.hidden = YES;
+            } else {
+                self.linkBtn.hidden = NO;
+            }
+        }
+    } else {
+        self.detailLabel.attributedText = [model.detailModel.projectSummary attStrEncodeWithFont:SPICAL_DETAIL_FONT(14.0f) textColor:DetailTextColor textAlignment:NSTextAlignmentLeft];
+    }
+}
+
+
+#pragma mark - configure
 
 - (void)configureUIAndFrame {
     [self.contentView addSubview:self.detailLabel];
@@ -65,6 +88,11 @@
 
 - (void)btnClick{
     
+    
+    WKBaseViewController *webVC = [[WKBaseWebViewController alloc] initWithUrlString:self.URLString];
+    
+    [self.viewController.navigationController pushViewController:webVC animated:YES];
+        
 }
 
 
@@ -73,9 +101,9 @@
 - (UILabel *)nameLabel {
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.textColor = [UIColor grayColor];
+        _nameLabel.textColor = TitleTextColor;
         _nameLabel.textAlignment = NSTextAlignmentLeft;
-        _nameLabel.font = SYSTEM_NORMAL_FONT(14.0f);
+        _nameLabel.font = SPICAL_FONT(14.0f);
         _nameLabel.text = @"ke.wang";
     }
     return _nameLabel;
@@ -84,11 +112,11 @@
 - (UILabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [[UILabel alloc] init];
-        _detailLabel.textColor = [UIColor grayColor];
+        _detailLabel.textColor = DetailTextColor;
         _detailLabel.textAlignment = NSTextAlignmentLeft;
         _detailLabel.numberOfLines = 0;
-        _detailLabel.font = SYSTEM_NORMAL_FONT(14.0f);
-        _detailLabel.text = @"jahsdkjhasdhajshdajsgjhadsfjahsdkjhasdhajshdajsgjhadsfjahsdkjhasdhajshdajsgjhadsfjahsdkjhasdhajshdajsgjhadsfjahsdkjhasdhajshdajsgjhadsfjahsdkjhasdhajshdajsgjhadsfjahsdkjhasdhajshdajsgjhadsfjahsdkjhasdhajshdajsgjhadsf";
+        _detailLabel.font = SPICAL_DETAIL_FONT(14.0f);
+        _detailLabel.text = @"Lucas is the former CEO of Bank Morgan Stanley AG, the private bank of Morgan Stanley with branches in Switzerland and Asia. Prior to that he was the Deputy Head of Morgan Stanley Wealth Management Asia and the COO of International Wealth Management.";
     }
     return _detailLabel;
 }
@@ -96,9 +124,10 @@
 - (UIButton *)linkBtn {
     if (!_linkBtn) {
         _linkBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _linkBtn.backgroundColor = [UIColor grayColor];
+        _linkBtn.backgroundColor = [UIColor clearColor];
         _linkBtn.layer.cornerRadius = 10;
         [_linkBtn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+        [_linkBtn setImage:[UIImage imageNamed:@"linkIcon"] forState:UIControlStateNormal];
     }
     return _linkBtn;
 }

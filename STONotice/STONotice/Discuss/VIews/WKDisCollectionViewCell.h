@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WKDisCollectionViewCell : UICollectionViewCell
 
+- (void)updateCellWithModel:(WKPostInfoModel *)model;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

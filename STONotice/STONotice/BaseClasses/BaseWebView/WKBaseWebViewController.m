@@ -77,12 +77,12 @@ typedef enum : NSUInteger {
 }
 
 - (void)initationProgressView {
-    UIView *progress = [[UIView alloc]initWithFrame:CGRectMake(0, NAVIGATIONBAR_HEIGHT_iOS7, CGRectGetWidth(self.view.frame), 3)];
+    UIView *progress = [[UIView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 3)];
     progress.backgroundColor = [UIColor clearColor];
     [self.view addSubview:progress];
     CALayer *layer = [CALayer layer];
     layer.frame = CGRectMake(0, 0, 0, 3);
-    layer.backgroundColor = [UIColor blueColor].CGColor;
+    layer.backgroundColor = LoginRegisterBlue.CGColor;
     [progress.layer addSublayer:layer];
     self.progressLayer = layer;
 }

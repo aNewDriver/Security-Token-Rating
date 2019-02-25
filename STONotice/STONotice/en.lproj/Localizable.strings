@@ -6,18 +6,128 @@
   Copyright © 2019年 Bankrous.inc. All rights reserved.
 */
 
+/********************  ↓ ********************/
+/********************  ↑ ********************/
+
+
+/******************** tabar ↓ ********************/
 "homeTabbarTitle" = "Projects"; //!< 首页
 "newsTabberTitle" = "News"; //!< 新闻
 "discussTabberTitle" = "Community"; //!< 讨论
-"selfTabbarTitle" = "Accpunt"; //!< 我的
+"selfTabbarTitle" = "Settings"; //!< 我的
+/******************** tabar ↑ ********************/
 
+/******************** 登陆注册 ↓ ********************/
 
+"loginFail" = "Login failed";
 "registerTitle" = "Register"; //!< 注册
 "loginTitle" = "Login"; //!< 登录
-"userName" = "UserName"; //!< 用户名
+"userName" = "Nickname"; //!< 用户名
 "email" = "Email"; //!< 邮箱
 "password" = "Password"; //!< 密码
-"confirmPassword" = "ConfirmPassword"; //!< 重复密码
+"confirmPassword" = "Verify"; //!< 重复密码
 "loginBtn" = "Login"; //!< 继续
 "forgotPSW" = "Forgot your password?"; //!< 忘记密码
+"emailPlaceHoder" = "You@example.com"; //!< 邮箱P
+"nicknamePlaceHoder" = "Make a cool nickname"; //!< 昵称P
+"passwordPlaceHoder" = "Enter your password";//!< 密码P
+"registerPasswordPlaceHoder" = "8-20 characters";
+"verifyPlaceHoder" = "Retype password";//!< 重复P
+"don't have account" = "Don't have an account? Register";//!< 没有账户
+"already have account" = "Already have an account? Login";//!< 已有账户
+"enterNickName" = "Enter your nickname";
 
+"emailEmpty" = "This field is required";
+"emailFormatWrong" = "Please ensure the address is correct";
+"emailNumberWrong" = "Please ensure the address is within 30 characters";
+"emailHaveExist" = "The email address has been registered";
+
+"nickNameEmpty" = "This field is required";
+"nickNumberWrong" = "Please ensure the nickname is within 10 characters";
+"nickHaveExist" = "This nickname already exists";
+
+
+"passwordEmpty" = "This field is required";
+"passwordFormatWrong" = "Password must include at least one lowercase letter, one uppercase letter, and one digit";
+"passwordNumberWrong" = "This password must contain 8-20 characters";
+
+"cPasswordEmpty" = "This field is required";
+"cPasswordNotMatch" = "Password is not matched";
+
+"loginFailPassword" = "Nickname or password is incorrect";
+"loginFail" = "Login failed";
+
+
+/******************** 登陆注册 ↑  ********************/
+
+
+
+/******************** 首页 ↓ ********************/
+"homeTitle" = "The World's First Rating Platform Focused on Security Tokens"; //!< 首页title
+"totalSupply" = "Total Supply"; //!< 发行总量
+"issuedText" = "Listed";
+"unList" = "Unlisted Tokens";
+
+/******************** 首页 ↑  ********************/
+
+
+/******************** projectDetail ↓ ********************/
+"projectDetailTitle" = "Project Detail";
+"category" = "Risk Level";
+"rating" = "Rating";
+"summary" = "Summary";
+"teamMember" = "Team";
+"discussion" = "Discussion";
+
+"price" = "Price";
+"priceUpdateTime" = "Price update time";
+"regulationComply" = "Regulation Comply";
+"riskLevel" = "Category";
+"officialWebsite" = "Official Website";
+"joinButton" = "View the Discuss";
+/******************** projectDetail ↑  ********************/
+
+
+
+/******************** 资讯详情 ↓ ********************/
+"newsDetailtitle" = "News Detail";
+/******************** 资讯详情 ↑ ********************/
+
+
+/******************** 讨论区 ↓ ********************/
+"projectDiscuss" = "Project Discussion Area";
+"topicDiscuss" = "Topic Discussion Area";
+"views" = "Views";
+"comments" = "Comments";
+"postSuccess" = "Post succeeded, the comment will display after it been reviewed and approved";
+"noComment" = "No comments";
+"commentConfilct" = "You have already submitted this comment, please wait for it been reviewed or submit a new comment";
+
+/******************** 讨论区 ↑ ********************/
+
+
+/******************** 讨论区详情 ↓ ********************/
+
+"sendComment" = "    Add a comment...";
+"commentVCTitle" = "Disucss";
+"send" = "Post";
+"commentPlaceHolder" = "Write your comment（Please keep within 400 words）";
+"projectDetail" = "Project Detail";
+"pleaseInput" = "We need some text here";
+
+/******************** 讨论区详情 ↑ ********************/
+
+/******************** 我的 ↓ ********************/
+
+"displayLanguage" = "Display Language";
+"aboutUs" = "About Us";
+"logOut" = "Log Out";
+"save" = "Save";
+"webTitle" = "Official Website";
+"telegram" = "Telegram";
+"customerServer" = "Contact Email";
+"tapToLogin" = "Log in";
+"Logoutsuccess" = "Logout succeeded!";
+"setting" = "Settings";
+
+/******************** 我的 ↑ ********************/

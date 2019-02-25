@@ -14,6 +14,7 @@
 #import "WKLanguageTool.h"
 
 
+
 #ifdef DEBUG
 #define WKAppLog(s, ... ) NSLog( @"[%@ in line %d] ===============>%@", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
 #else
@@ -50,6 +51,7 @@
 #pragma mark - size
 
 
+#define ToastCenter CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 100)
 #define SCREEN_WIDTH CGRectGetWidth([UIScreen mainScreen].bounds)
 #define SCREEN_HEIGHT CGRectGetHeight([UIScreen mainScreen].bounds)
 #define NAVIGATIONBAR_HEIGHT 44.0f
@@ -74,6 +76,8 @@
 #pragma mark - 颜色
 
 #define LoginRegisterBlue RGBCOLOR(43, 141, 255)
+#define TitleTextColor RGBCOLOR(66, 66, 66)
+#define DetailTextColor RGBCOLOR(102, 102, 102)
 
 
 #define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
@@ -135,6 +139,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #define STATES_COLOR_BLUE UIColorFromRGB(0x4A90E2);  //!< 蓝色
 
 
+
 #pragma mark - 字体
 //等比例的字体
 #define BOLD_SCALE_FONT(num) [UIFont boldSystemFontOfSize: num * SCREEN_SCALE]
@@ -143,10 +148,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 //正常的字体
 #define BOLD_NORMAL_FONT(num) [UIFont boldSystemFontOfSize: num]
 #define SYSTEM_NORMAL_FONT(num) [UIFont systemFontOfSize: num]
-#define SYSTEM_NORMAL_NAME_FONT(name, num) [UIFont fontWithName:name size:num]
+#define SYSTEM_NORMAL_NAME_FONT(name, num) [UIFont fontWithName:name size:(num * SCREENSCALE)]
+
+#define SPICAL_FONT(num) [UIFont fontWithName:SpicalTextName size:(num * SCREENSCALE)] //!< 特殊字体FONT
+#define SPICAL_DETAIL_FONT(num) [UIFont fontWithName:DetailSpicalTextName size:(num * SCREENSCALE)] //!< 另外一种特殊字体FONT, 常用于副标题和内容
+
 #define SYSTEM_MEDIUM_SCALE_FONT(num) [UIFont fontWithName:@".PingFangSC-Medium" size:num * SCALE_TO_IPHONE6]
 #define SYSTEM_MEDIUM_FONT(num) [UIFont fontWithName:@".PingFangSC-Medium" size:num]
-
+#define SCREENSCALE  [UIScreen mainScreen].bounds.size.width/375.0f
 
 // 等级的 adobe caslon pro blod italic 字体
 #define ADOBE_CASLONPRO_BLOD_FONT(f) [UIFont fontWithName:@"ACaslonPro-BoldItalic" size:f];

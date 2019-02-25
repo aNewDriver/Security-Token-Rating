@@ -57,4 +57,15 @@ _Pragma("clang diagnostic pop")\
  */
 - (void)configureRightItemsWithItemImageNameArray:(NSArray <NSString *> *)itemImageNameArray actionNameArray:(NSArray <NSString *> *)actionNameArray;
 
+
+- (void)configureRightItemsWithItemNameArray:(nonnull NSArray <NSString *> *)itemNameArray
+                              itemColorArray:(nonnull NSArray <UIColor *>*)itemColorArray
+                               itemFontArray:(nonnull NSArray <UIFont *>*)itemFontArray
+                             actionNameArray:(nonnull NSArray <NSString *> *)actionNameArray;
+
+
+- (void)configureRightItemsWithItemNameArray:(nonnull NSArray <NSString *> *)itemNameArray
+                              attributeRules:(NSArray <NSDictionary *>*)attributeRules
+                              itemColorArray:(nonnull NSArray <UIColor *>*)itemColorArray
+                             actionNameArray:(nonnull NSArray <NSString *> *)actionNameArray;
 @end

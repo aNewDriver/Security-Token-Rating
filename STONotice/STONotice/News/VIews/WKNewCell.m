@@ -30,43 +30,52 @@
     return self;
 }
 
+- (void)updateCellWithModel:(WKPostInfoModel *)model {
+    NSString *title = [model.title.rendered subStrAtCharsRangeWithStartChar:@"<p>" endChar:@"</p>"];
+    NSAttributedString *attstr = [title attStrEncodeWithFont:SPICAL_FONT(16.0f) textColor:TitleTextColor textAlignment:NSTextAlignmentLeft];
+    self.titleLabel.attributedText = attstr;
+    NSString *detailStr = model.content.rendered;
+    NSArray *array = [detailStr componentsSeparatedByString:@"\n"];
+    NSArray *detailStrArray = [self stringArraySub:array startChar:@">" endChar:@"</"];
+    model.resultContentArray = detailStrArray;
+    self.detailLabel.text = detailStrArray[0];
+    
+    NSString *imaStr = [detailStrArray[1] subStrAtCharsRangeWithStartChar:@"<img" endChar:@"/>"];
+    NSString *imaUrl = [imaStr subStrAtCharsRangeWithStartChar:@"src=" endChar:@"alt="];
+    NSString *resS = [imaUrl substringWithRange:NSMakeRange(1, imaUrl.length - 3)];
+    [self.imageV sd_setImageWithURL:[NSURL URLWithString:resS] ];
+    
+}
+
+- (NSArray *)stringArraySub:(NSArray *)array startChar:(NSString *)startChar endChar:(NSString *)endChar{
+    NSMutableArray *resultArray = @[].mutableCopy;
+    for (NSString *string in array) {
+        if (![string isEmpty]) {
+            [resultArray addObject:[string subStrAtCharsRangeWithStartChar:startChar endChar:endChar]];
+        }
+    }
+    return resultArray.copy;
+}
+
+#pragma mark - configure
 
 - (void)configureUIAndFrame {
+    [self.contentView addSubview:self.imageV];
     [self.contentView addSubview:self.titleLabel];
     [self.contentView addSubview:self.detailLabel];
-    [self.contentView addSubview:self.imageV];
     [self.contentView addSubview:self.line];
-    
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.equalTo(self.contentView).offset(10.0f);
-        make.right.equalTo(self.imageV.mas_left).offset(- 20.0f);
-        make.height.equalTo(self.titleLabel.mas_height);
-    }];
-    
-    [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.titleLabel);
-        make.top.equalTo(self.titleLabel.mas_bottom).offset(20.0f);
-        make.right.equalTo(self.imageV.mas_left).offset(- 20.0f);
-        make.height.equalTo(self.detailLabel.mas_height);
-//        make.bottom.equalTo(self.contentView.mas_bottom).offset(-5.0f);
-    }];
-    
+    self.titleLabel.frame = CGRectMake(15, 15, 215 * SCREENSCALE, 60);
+    self.detailLabel.frame = CGRectMake(15, 81 + 15, 215 * SCREENSCALE, 14.0f);
+    self.line.frame = CGRectMake(15, CGRectGetMaxY(self.detailLabel.frame) + 10, SCREEN_WIDTH - 30, 1.0f);
     [self.imageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.contentView).offset(-10.0f);
-        make.top.equalTo(self.contentView).offset(10.0f);
-        make.width.equalTo(@(100));
-        make.height.equalTo(@(80));
+        make.right.equalTo(self.contentView.mas_right).offset(-10.0f);
+        make.centerY.equalTo(self.contentView);
+        make.width.equalTo(@(116 * SCREENSCALE));
+        make.height.equalTo(@(80 * SCREENSCALE));
     }];
-    
-    [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.detailLabel.mas_bottom).offset(20.0f);
-        make.left.equalTo(self.contentView).offset(10.0f);
-        make.right.equalTo(self.contentView).offset(-10.0f);
-        make.height.equalTo(@1.0f);
-        make.bottom.equalTo(self.contentView.mas_bottom);
-    }];
-
 }
+
+
 
 
 #pragma mark - get
@@ -74,9 +83,9 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = SYSTEM_NORMAL_FONT(16.0f);
+        _titleLabel.font = SPICAL_FONT(16.0f);
         _titleLabel.textAlignment = NSTextAlignmentLeft;
-        _titleLabel.textColor = RGBCOLOR(66, 66, 66);
+        _titleLabel.textColor = TitleTextColor;
         _titleLabel.text = @"标题标题标题标题标题标题标题标题标题标题标题标题标题";
         _titleLabel.numberOfLines = 3;
     }
@@ -87,7 +96,7 @@
 - (UILabel *)detailLabel {
     if (!_detailLabel) {
         _detailLabel = [[UILabel alloc] init];
-        _detailLabel.font = SYSTEM_NORMAL_FONT(12.0f);
+        _detailLabel.font = SPICAL_DETAIL_FONT(12.0f);
         _detailLabel.textAlignment = NSTextAlignmentLeft;
         _detailLabel.textColor = RGBCOLOR(170, 170, 170);
         _detailLabel.text = @"Bankorus 2小时前";
@@ -98,7 +107,9 @@
 - (UIImageView *)imageV {
     if (!_imageV) {
         _imageV = [[UIImageView alloc] init];
-        _imageV.backgroundColor = [UIColor lightGrayColor];
+        _imageV.backgroundColor = BACKGROUND_COLOR;
+        _imageV.layer.cornerRadius = 5.0f;
+        _imageV.layer.masksToBounds = YES;
     }
     return _imageV;
 }

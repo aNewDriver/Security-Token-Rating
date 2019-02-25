@@ -11,6 +11,7 @@
 
 #import "WKLoginVC.h"
 #import "WKRegisterVC.h"
+#import "WKRegisterManager.h"
 
 
 @interface WKLoginVC ()<UITextFieldDelegate>
@@ -32,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = NSLocalizedString(@"loginTitle", nil) ? NSLocalizedString(@"loginTitle", nil) : @"Login";
+    self.title = WKGetStringWithKeyFromTable(@"loginTitle", nil);
     [self configureUI];
     [self configureFrame];
     [self configureGoBackIcon];
@@ -44,25 +45,64 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;//白色
 }
 
+- (UILabel *)getMistakeLabelWithTextField:(UITextField *)textField {
+    UILabel *label = [self.backView viewWithTag:textField.tag * 3];
+    return label;
+}
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
     NSUInteger tag = textField.tag * 2;
-    
     UIView *line = [self.backView viewWithTag:tag];
-    
     line.backgroundColor = BACKGROUND_COLOR;
+    
+    UILabel *label = [self getMistakeLabelWithTextField:textField];
+    if ([textField.text isEmpty]) {
+        NSString *str;
+        if (textField == self.emailT) {
+            str = WKGetStringWithKeyFromTable(@"emailEmpty", nil);
+        } else {
+            str = WKGetStringWithKeyFromTable(@"passwordEmpty", nil);
 
+        }
+    }
 }
-
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     
     NSUInteger tag = textField.tag * 2;
-    
     UIView *line = [self.backView viewWithTag:tag];
     line.backgroundColor = LoginRegisterBlue;
 
+    return YES;
+}
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSString *resultStr = textField.text;
+    if ([string isEqualToString:@""]) {
+        if (range.location == 0) {
+            resultStr = @"";
+        } else {
+            resultStr = [resultStr substringToIndex:range.location];
+        }
+    } else {
+        resultStr = [resultStr stringByAppendingString:string];
+    }
+    
+    UILabel *label = [self getMistakeLabelWithTextField:textField];
+    label.text = @"";
+    
+    
+//    if (textField == self.emailT) { //!< 邮箱校验
+//        if (![resultStr emailAddressJude]) {
+//            label.text = WKGetStringWithKeyFromTable(@"emailFormatWrong", nil);
+//        } else {
+//            label.text = @"";
+//        }
+//    }
+    
     return YES;
 }
 
@@ -83,6 +123,7 @@
     goBack.frame = CGRectMake(15.0f, y + 7, 10, 18.0f);
     [goBack setImage:[UIImage imageNamed:@"whiteGoBackIcon"] forState:UIControlStateNormal];
     [goBack addTarget:self action:@selector(goBackbtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [goBack setEnlargeEdge:20];
     [self.view addSubview:goBack];
 }
 
@@ -120,7 +161,7 @@
     [self.backView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(15.0f);
         make.right.equalTo(self.view).offset(-15.0f);
-        make.height.equalTo(@360.0f);
+        make.height.equalTo(@327.0f);
         make.top.equalTo(self.view).offset(200.0f);
     }];
     
@@ -171,7 +212,7 @@
     
     [self.registerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.continueBtn.mas_centerX);
-        make.top.equalTo(self.continueBtn.mas_bottom).offset(24.0f);
+        make.top.equalTo(self.continueBtn.mas_bottom).offset(20.0f);
         make.height.equalTo(@(30.0f));
         make.width.equalTo(self.registerBtn.mas_width);
     }];
@@ -189,6 +230,21 @@
         make.right.equalTo(self.backView.mas_right).offset(-15.0f);
         make.height.equalTo(@1.0f);
     }];
+    
+    
+    UILabel *mistakeL = [[UILabel alloc] init];
+    mistakeL.textColor = RGBCOLOR(238, 26, 26);
+    mistakeL.textAlignment = NSTextAlignmentLeft;
+    mistakeL.font = SPICAL_FONT(10.0f);
+    mistakeL.tag = textField.tag * 3;
+    mistakeL.backgroundColor = [UIColor clearColor];
+    [self.backView addSubview:mistakeL];
+    
+    [mistakeL mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(line);
+        make.top.equalTo(line.mas_bottom).offset(1.0f);
+        make.height.equalTo(@10.0f);
+    }];
 }
 
 
@@ -197,18 +253,83 @@
 - (void)btnClick {
     //!< 登陆完成 跳转回去
     
-    [self.view endEditing:YES];
     
-    self.navigationController.navigationBar.hidden = NO;
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;//黑色
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    
-
-    if ([self.emailT.text isEmpty] || [self.pswT.text isEmpty]) {
+    BOOL canLogin = YES;
+    UILabel *mistakeL;
+    if (self.emailT.text == nil || [self.emailT.text isEmpty]) {
+        mistakeL = [self getMistakeLabelWithTextField:self.emailT];
+        mistakeL.text = WKGetStringWithKeyFromTable(@"nickNameEmpty", nil);
+        canLogin = NO;
+    }
+    if (self.pswT.text == nil || [self.pswT.text isEmpty]){
+        mistakeL = [self getMistakeLabelWithTextField:self.pswT];
+        mistakeL.text = WKGetStringWithKeyFromTable(@"passwordEmpty", nil);
+        canLogin = NO;
+    }
+    if (!canLogin) {
         return;
     }
     
-    //!< 登陆
+    for (UITextField *subV in self.backView.subviews) {
+        if ([subV isKindOfClass:[UITextField class]]) {
+            UILabel *misL = [self getMistakeLabelWithTextField:subV];
+            if (![misL.text isEmpty]) {
+                canLogin = NO;
+            }
+        }
+    }
+    if (!canLogin) {
+        return;
+    }
+    
+    
+    NSDictionary *params = @{@"username":self.emailT.text, @"password":self.pswT.text};
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [WKRegisterManager LoginWithParams:params success:^(id  _Nonnull response) {
+        
+        NSDictionary *dic = (NSDictionary *)response;
+        [self performSelectorOnMainThread:@selector(dissView:) withObject:dic waitUntilDone:YES];
+        
+        NSLog(@"%@", response);
+        
+    } fail:^(id  _Nonnull error) {
+        
+        [self performSelectorOnMainThread:@selector(loginFail) withObject:nil waitUntilDone:YES];
+        
+    }];
+}
+
+- (void)loginFail {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    });
+    [self.view makeToast:WKGetStringWithKeyFromTable(@"loginFail", nil) duration:1.5f position:@(ToastCenter)];
+    
+}
+
+- (void)dissView:(NSDictionary *)dic {
+    
+    [self.view endEditing:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    });
+    
+    if ([dic.allKeys containsObject:@"token"]) {
+        [[WKLoginInfoManager sharedInsetance] persistenceLoginInfoWithResponse:dic];
+        
+        [self.view endEditing:YES];
+        self.navigationController.navigationBar.hidden = NO;
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;//黑色
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        
+    } else if ([dic.allKeys containsObject:@"message"]) {
+        
+        [self.view makeToast:WKGetStringWithKeyFromTable(@"loginFailPassword", nil) duration:1.5f position:@(ToastCenter)];
+    } else {
+        [self.view makeToast:WKGetStringWithKeyFromTable(@"loginFail", nil) duration:1.5f position:@(ToastCenter)];
+    }
+
 }
 
 - (void)registerBtnClick {
@@ -218,14 +339,12 @@
     [self.navigationController pushViewController:registerVC animated:YES];
 }
 
-
-
 #pragma mark - get
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = SYSTEM_NORMAL_FONT(26.0f);
+        _titleLabel.font = SPICAL_FONT(26.0f);
         _titleLabel.textColor = [UIColor whiteColor];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.text = @"Security Token Ratings";
@@ -237,10 +356,10 @@
 - (UILabel *)loginL {
     if (!_loginL) {
         _loginL = [[UILabel alloc] init];
-        _loginL.font = SYSTEM_NORMAL_FONT(22.0f);
+        _loginL.font = SPICAL_FONT(22.0f);
         _loginL.textColor = LoginRegisterBlue;
         _loginL.textAlignment = NSTextAlignmentCenter;
-        _loginL.text = @"Login";
+        _loginL.text = WKGetStringWithKeyFromTable(@"loginTitle", nil);
     }
     return _loginL;
 }
@@ -258,9 +377,9 @@
 - (UILabel *)emailL {
     if (!_emailL) {
         _emailL = [[UILabel alloc] init];
-        _emailL.font = SYSTEM_NORMAL_FONT(14.0f);
-        _emailL.textColor = RGBCOLOR(102, 102, 102);
-        _emailL.text = @"Email";
+        _emailL.font = SPICAL_FONT(14.0f);
+        _emailL.textColor = DetailTextColor;
+        _emailL.text = WKGetStringWithKeyFromTable(@"userName", nil);;
     }
     return _emailL;
 }
@@ -268,9 +387,9 @@
 - (UILabel *)pswL {
     if (!_pswL) {
         _pswL = [[UILabel alloc] init];
-        _pswL.font = SYSTEM_NORMAL_FONT(14.0f);
-        _pswL.textColor = RGBCOLOR(102, 102, 102);
-        _pswL.text = @"Password";
+        _pswL.font = SPICAL_FONT(14.0f);
+        _pswL.textColor = DetailTextColor;
+        _pswL.text = WKGetStringWithKeyFromTable(@"password", nil);;
     }
     return _pswL;
 }
@@ -280,9 +399,9 @@
         _emailT = [[UITextField alloc] init];
         _emailT.delegate = self;
         _emailT.backgroundColor = [UIColor clearColor];
-        NSString *str = NSLocalizedString(@"email", nil) ? NSLocalizedString(@"email", nil) : @"Email";
-        _emailT.attributedPlaceholder = [[NSAttributedString alloc] initWithString:str attributes:@{NSFontAttributeName : SYSTEM_NORMAL_FONT(14.0f)}];
-        _emailT.font = SYSTEM_NORMAL_FONT(14.0f);
+        NSString *str = WKGetStringWithKeyFromTable(@"enterNickName", nil);
+        _emailT.attributedPlaceholder = [[NSAttributedString alloc] initWithString:str attributes:@{NSFontAttributeName : SPICAL_DETAIL_FONT(14.0f)}];
+        _emailT.font = SPICAL_DETAIL_FONT(14.0f);
         _emailT.tag = TextTagBegian + 1;
 
         
@@ -294,10 +413,11 @@
     if (!_pswT) {
         _pswT = [[UITextField alloc] init];
         _pswT.delegate = self;
+        _pswT.secureTextEntry = YES;
         _pswT.backgroundColor = [UIColor clearColor];
-         NSString *str = NSLocalizedString(@"password", nil) ? NSLocalizedString(@"password", nil) : @"password";
-        _pswT.attributedPlaceholder = [[NSAttributedString alloc] initWithString:str attributes:@{NSFontAttributeName : SYSTEM_NORMAL_FONT(14.0f)}];
-        _pswT.font = SYSTEM_NORMAL_FONT(14.0f);
+         NSString *str = WKGetStringWithKeyFromTable(@"passwordPlaceHoder", nil);
+        _pswT.attributedPlaceholder = [[NSAttributedString alloc] initWithString:str attributes:@{NSFontAttributeName : SPICAL_DETAIL_FONT(14.0f)}];
+        _pswT.font = SPICAL_DETAIL_FONT(14.0f);
         _pswT.tag = TextTagBegian + 2;
     }
     return _pswT;
@@ -308,7 +428,7 @@
         _continueBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_continueBtn setBackgroundColor:LoginRegisterBlue];
         _continueBtn.layer.cornerRadius = 4.0f;
-        [_continueBtn setTitle:NSLocalizedString(@"loginBtn", nil) ? NSLocalizedString(@"loginBtn", nil) : @"Login" forState:UIControlStateNormal];
+        [_continueBtn setTitle:WKGetStringWithKeyFromTable(@"loginTitle", nil) forState:UIControlStateNormal];
         [_continueBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_continueBtn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -319,14 +439,14 @@
 - (UIButton *)registerBtn {
     if (!_registerBtn) {
         _registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        NSString *str = @"Don't have an account? Register";
+        NSString *str = WKGetStringWithKeyFromTable(@"don't have account", nil);
         NSArray *array = [str componentsSeparatedByString:@"?"];
         NSString *firstStr = array[0];
         NSString *secStr = array[1];
         NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] initWithString:str];
         [attStr addAttributes:@{NSForegroundColorAttributeName : RGBCOLOR(153, 153, 153)} range:NSMakeRange(0, firstStr.length + 1)];
         [attStr addAttributes:@{NSForegroundColorAttributeName : LoginRegisterBlue} range:NSMakeRange(firstStr.length + 1, secStr.length)];
-        [attStr addAttributes:@{NSFontAttributeName : SYSTEM_NORMAL_FONT(13.0f)} range:NSMakeRange(0, str.length)];
+        [attStr addAttributes:@{NSFontAttributeName : SPICAL_FONT(13.0f)} range:NSMakeRange(0, str.length)];
         
 //        [_forgrtBtn setTitle: forState:UIControlStateNormal];
         [_registerBtn setAttributedTitle:attStr forState:UIControlStateNormal];

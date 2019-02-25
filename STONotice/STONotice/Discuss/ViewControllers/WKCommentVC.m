@@ -8,6 +8,7 @@
 
 #import "WKCommentVC.h"
 #import "UITextView+WKPlaceHolder.h"
+#import "WKDiscussManager.h"
 
 @interface WKCommentVC ()<UITextViewDelegate>
 
@@ -21,13 +22,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self configureRightItemsWithItemNameArray:@[@"发布"] actionNameArray:@[@"submit"]];
+    self.title = WKGetStringWithKeyFromTable(@"commentVCTitle", nil);
+    [self configureRightItemsWithItemNameArray:@[WKGetStringWithKeyFromTable(@"send", nil)] itemColorArray:@[LoginRegisterBlue] itemFontArray:@[SPICAL_DETAIL_FONT(15.0f)] actionNameArray:@[@"submit"]];
     [self configureUIAndFrame];
 }
 
 - (void)submit {
+    [self.view endEditing:YES];
+    if (self.mainTextView.text.length > 0) {
+        
+        NSString *str = (self.mainTextView.text.length > 400) ? [self.mainTextView.text substringToIndex:400] : self.mainTextView.text;
+        
+        [WKDiscussManager commentProjectWithPostId:self.postId content:str success:^(id  _Nonnull response) {
+            
+            NSDictionary *dic = (NSDictionary *)response;
+            NSString *postId = dic[@"id"];
+            
+            if (postId != nil) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.view makeToast:WKGetStringWithKeyFromTable(@"postSuccess", nil) duration:1.5f position:@(CGPointMake(SCREEN_WIDTH / 2, 200))];
+                    [self performSelector:@selector(pop) withObject:nil afterDelay:1.5f];
+                });
+            }
+            
+        } fail:^(NSError * _Nonnull error) {
+            
+            
+        }];
+    } else {
+        
+        [self.view makeToast:WKGetStringWithKeyFromTable(@"pleaseInput", nil) duration:1.5f position:@(CGPointMake(SCREEN_WIDTH / 2, 200))];
+    }
+}
+
+- (void)pop {
     
+    [self.navigationController popViewControllerAnimated:YES];
+    if (self.refreshBlock) {
+        self.refreshBlock();
+    }
 }
 
 - (void)configureUIAndFrame {
@@ -54,9 +87,9 @@
     
     if (resultStr.length > 400) {
         resultStr = [resultStr substringToIndex:400];
+        textView.text = resultStr;
+        return NO;
     }
-    
-    NSLog(@"%@", resultStr);
     
     return YES;
 }
@@ -66,12 +99,10 @@
 - (UITextView *)mainTextView {
     if (!_mainTextView) {
         _mainTextView = [[UITextView alloc] init];
-        _mainTextView.backgroundColor = BACKGROUND_COLOR;
-        _mainTextView.layer.cornerRadius = 4.0f;
-        _mainTextView.layer.borderWidth = 1.0f;
-        _mainTextView.layer.borderColor = [UIColor blackColor].CGColor;
+        _mainTextView.backgroundColor = [UIColor clearColor];
         _mainTextView.delegate = self;
-        _mainTextView.placeholder = @"写下你的想法(请控制在400字以内)";
+        _mainTextView.placeholder = WKGetStringWithKeyFromTable(@"commentPlaceHolder", nil);
+        _mainTextView.font = SPICAL_FONT(14.0f);
     }
     return _mainTextView;
 }

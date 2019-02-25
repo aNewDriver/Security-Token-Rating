@@ -8,6 +8,7 @@
 
 #import "WKSetLanagueVC.h"
 #import "WKLanguageTool.h"
+#import "WKSetLanagueCell.h"
 
 @interface WKSetLanagueVC ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -23,9 +24,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self baseConfigure];
-    self.dataSource = @[@"简体中文", @"繁體中文", @"English", @"French", @"Korean", @"Spanish", @"Japanese"];
+    self.title = WKGetStringWithKeyFromTable(@"displayLanguage", nil);
+    self.dataSource = @[@{@"key" : EN, @"value" : @"English"},
+                        @{@"key" : CNS, @"value" : @"简体中文"}
+                        ];
+    
+//    @{@"key" : FR, @"value" : @"Français"},
+//    @{@"key" : KOR, @"value" : @"한국어"},
+//    @{@"key" : XBY, @"value" : @"Español"},
+//    @{@"key" : JP, @"value" : @"日本語"}
     self.currentIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;//展示
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;//隐藏
 }
 
 - (void)baseConfigure {
@@ -33,37 +54,33 @@
     [self.mainTV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.with.right.height.equalTo(self.view);
     }];
-    
-    [self configureRightItemsWithItemNameArray:@[@"save"] actionNameArray:@[@"save"]];
+
 }
 
-- (void)save {
+- (void)saveWithIndexPath:(NSIndexPath *)indexPath {
     
+
     NSUInteger index = self.currentIndexPath.row;
     NSString *lanague;
     switch (index) {
-        case 0:
+        case 1:
             lanague = CNS;
             break;
-        case 1:
-            lanague = CNF;
-            break;
-        case 2:
+        case 0:
             lanague = EN;
             break;
-        case 3:
+        case 2:
             lanague = FR;
             break;
-        case 4:
+        case 3:
             lanague = KOR;
             break;
-        case 5:
+        case 4:
             lanague = XBY;
             break;
-        case 6:
+        case 5:
             lanague = JP;
             break;
-
         default:
             break;
     }
@@ -84,37 +101,57 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *identifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    static NSString *identifier = @"WKSetLanagueCell";
+    WKSetLanagueCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        cell = [[WKSetLanagueCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
-    NSString *str = self.dataSource[indexPath.row];
-    cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:str attributes:@{NSFontAttributeName : SYSTEM_NORMAL_FONT(16.0f), NSForegroundColorAttributeName : [UIColor lightGrayColor]}];
-   
+    cell.indexPath = indexPath;
     
+    NSDictionary *dic = self.dataSource[indexPath.row];
+    [cell updateCellWithDic:dic];
+    
+    NSString *defaultL = [[WKLanguageTool sharedInstance] currentLanague];
+    NSString *normalL = [dic valueForKey:@"key"];
+
+    if ([normalL isEqualToString: defaultL]) {
+        self.currentIndexPath = indexPath;
+    } else if ([defaultL containsString:@"zh-Hans"] && [normalL isEqualToString:CNS]) {
+        self.currentIndexPath = indexPath;
+    } else if (defaultL == nil && indexPath.row == 0) {
+        self.currentIndexPath = indexPath;
+    }
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50.0f;
+    return 60.0f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
-    self.currentIndexPath = indexPath;
-    
-    NSLog(@"currentIndexPath = %@", self.currentIndexPath);
+    if (indexPath != _currentIndexPath) {
+        WKSetLanagueCell *haveSelecetdCell = [tableView cellForRowAtIndexPath:self.currentIndexPath];
+        [haveSelecetdCell didDeselected];
+        
+        WKSetLanagueCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        [cell didSelected];
+        self.currentIndexPath = indexPath;
+        [self saveWithIndexPath:indexPath];
+    }
 }
                           
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    WKSetLanagueCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell didDeselected];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return [[UIView alloc] init];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.0001f;
 }
 
 
@@ -122,11 +159,11 @@
 
 - (UITableView *)mainTV {
     if (!_mainTV) {
-        _mainTV = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        _mainTV.backgroundColor = [UIColor whiteColor];
+        _mainTV = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _mainTV.backgroundColor = BACKGROUND_COLOR;
         _mainTV.delegate = self;
         _mainTV.dataSource = self;
-        _mainTV.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _mainTV.separatorStyle = UITableViewCellSeparatorStyleNone;
         _mainTV.estimatedRowHeight = 120.0f;
     }
     return _mainTV;

@@ -42,7 +42,7 @@
 - (void)load {
     self.hasSwizzle = YES;
     Class clazz = NSClassFromString(@"__NSURLSessionConfiguration") ?:NSClassFromString(@"NSURLSessionConfiguration");
-    NSArray *array = [self getAllMethodWithClass:clazz];
+//    NSArray *array = [self getAllMethodWithClass:clazz];
     
     
     
@@ -102,8 +102,8 @@
         Method temp = methodList[i];
         SEL name_F = method_getName(temp);
         const char *name_s = sel_getName(name_F);
-        int arguments = method_getNumberOfArguments(temp);
-        const char * encoding = method_getTypeEncoding(temp);
+//        int arguments = method_getNumberOfArguments(temp);
+//        const char * encoding = method_getTypeEncoding(temp);
         [methodArray addObject:[NSString stringWithUTF8String:name_s]];
     }
     

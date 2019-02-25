@@ -18,8 +18,8 @@ static WKLanguageTool *sharedTool = nil;
 
 @interface WKLanguageTool ()
 
-@property(nonatomic,strong)NSBundle *bundle;
-@property(nonatomic,copy)NSString *language;
+@property(nonatomic, strong)NSBundle *bundle;
+@property(nonatomic, copy)NSString *language;
 
 
 
@@ -38,12 +38,14 @@ static WKLanguageTool *sharedTool = nil;
 
 -(void)initLanguage
 {
-    NSString *tmp = [[NSUserDefaults standardUserDefaults] objectForKey:LANGUAGE_SET];
+    NSString *tmp = [self currentLanague];
     NSString *path;
     //默认是英文
     if (!tmp)
     {
         tmp = EN;
+    } else if ([tmp containsString:@"zh-Hans"]) { //!< 说明是中文
+        tmp = CNS;
     }
     
     self.language = tmp;
@@ -84,17 +86,28 @@ static WKLanguageTool *sharedTool = nil;
         return;
     }
     
-    if ([language isEqualToString:EN] || [language isEqualToString:CNS] || [language isEqualToString:CNF] || [language isEqualToString:KOR] || [language isEqualToString:JP] || [language isEqualToString:FR] || [language isEqualToString:XBY])
+    if ([language isEqualToString:EN] || [language containsString:CNS] || [language isEqualToString:CNF] || [language isEqualToString:KOR] || [language isEqualToString:JP] || [language isEqualToString:FR] || [language isEqualToString:XBY])
     {
-        NSString *path = [[NSBundle mainBundle]pathForResource:language ofType:@"lproj"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj"];
         self.bundle = [NSBundle bundleWithPath:path];
     }
     
     self.language = language;
-    [[NSUserDefaults standardUserDefaults]setObject:language forKey:LANGUAGE_SET];
-    [[NSUserDefaults standardUserDefaults]synchronize];
+    [[NSUserDefaults standardUserDefaults] setObject:language forKey:LANGUAGE_SET];
+    [[NSUserDefaults standardUserDefaults] synchronize];
  
     [self resetRootViewController];
+}
+
+- (NSString *)currentLanague {
+    
+    NSString *currentL = [[NSUserDefaults standardUserDefaults] objectForKey:LANGUAGE_SET];
+    if (currentL == nil) {
+        //获取当前设备语言
+        NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+        currentL = [appLanguages objectAtIndex:0];
+    }
+    return currentL;
 }
 
 //重新设置

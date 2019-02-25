@@ -10,6 +10,32 @@
 
 @implementation WKPostInfoModel
 
++ (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper {
+    return @{@"postId":@"id"};
+}
+
+
+@end
+
+@implementation WKPostInfoTitleModel
+
+
+@end
+
+@implementation WKProjectDetailIofo
+
+
+
+@end
+
+@implementation WKProjectTeamMember
+
+
+
+@end
+
+@implementation WKDiscussModel
+
 
 
 @end

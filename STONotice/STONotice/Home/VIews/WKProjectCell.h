@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WKProjectCell : UITableViewCell
 
+- (void)updateCellWithModel:(WKPostInfoModel *)model;
+
 @end
 
 NS_ASSUME_NONNULL_END
