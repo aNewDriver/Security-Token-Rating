@@ -36,10 +36,11 @@ post分为不同的categories;
 格式在wordpress管理后台查看, 或者对app进行抓包.
 
 Projects: 父category为Projects 子category分为Listed和Unlisted(已发布项目 和 未发布项目)
+
 New: 父category为News, 如果是Banner图, 那么子category为Banner
+
 Community: Project Discussion Area:为所有category为Projects的合集   Topic Discussion Area:category为 Topic Discussion Area 
+
 Settings: 国际化支持, 目前仅可支持中英选择, 可在项目中Localizable.strings 和 InfoPlist.strings中添加支持语言
 
 
-
-项目: Projects
