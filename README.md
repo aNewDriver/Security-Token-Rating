@@ -1,4 +1,4 @@
-# STONews
+# Security-Token-Rating
 
 AppleId: appledev@bankorus.com   
 PassWord: Dev4#bankorus 
