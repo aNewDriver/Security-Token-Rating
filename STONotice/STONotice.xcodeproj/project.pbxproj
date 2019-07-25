@@ -34,6 +34,9 @@
 		0E3A988421F81195009F1ACE /* WKLoginInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A988321F81195009F1ACE /* WKLoginInfoManager.m */; };
 		0E3A988721F9656C009F1ACE /* UIButton+WKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A988621F9656C009F1ACE /* UIButton+WKAdd.m */; };
 		0E3A988A21F9B35E009F1ACE /* UIColor+WKAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A988921F9B35E009F1ACE /* UIColor+WKAdd.m */; };
+		0E741C2F223644CB00B2A158 /* WKNewsChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E741C2E223644CB00B2A158 /* WKNewsChartView.m */; };
+		0E741C32223A00C600B2A158 /* WKReportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E741C31223A00C600B2A158 /* WKReportCell.m */; };
+		0E741C35223A013800B2A158 /* WKRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E741C34223A013800B2A158 /* WKRatingView.m */; };
 		0E9DEC3821F9BBBE00E855EB /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E9DEC3721F9BBBE00E855EB /* SF-Pro-Text-Medium.otf */; };
 		0E9DEC3C21FEE69900E855EB /* UIFont+Adjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9DEC3B21FEE69900E855EB /* UIFont+Adjust.m */; };
 		0E9DEC3E21FEEFF100E855EB /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E9DEC3D21FEED3500E855EB /* SF-Pro-Text-Regular.otf */; };
@@ -155,6 +158,12 @@
 		0E3A988621F9656C009F1ACE /* UIButton+WKAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WKAdd.m"; sourceTree = "<group>"; };
 		0E3A988821F9B35E009F1ACE /* UIColor+WKAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+WKAdd.h"; sourceTree = "<group>"; };
 		0E3A988921F9B35E009F1ACE /* UIColor+WKAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WKAdd.m"; sourceTree = "<group>"; };
+		0E741C2D223644CB00B2A158 /* WKNewsChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKNewsChartView.h; sourceTree = "<group>"; };
+		0E741C2E223644CB00B2A158 /* WKNewsChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKNewsChartView.m; sourceTree = "<group>"; };
+		0E741C30223A00C600B2A158 /* WKReportCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKReportCell.h; sourceTree = "<group>"; };
+		0E741C31223A00C600B2A158 /* WKReportCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKReportCell.m; sourceTree = "<group>"; };
+		0E741C33223A013800B2A158 /* WKRatingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKRatingView.h; sourceTree = "<group>"; };
+		0E741C34223A013800B2A158 /* WKRatingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKRatingView.m; sourceTree = "<group>"; };
 		0E9DEC3721F9BBBE00E855EB /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
 		0E9DEC3921F9BEAD00E855EB /* DIN-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN-Medium.otf"; sourceTree = "<group>"; };
 		0E9DEC3A21FEE69900E855EB /* UIFont+Adjust.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+Adjust.h"; sourceTree = "<group>"; };
@@ -764,6 +773,12 @@
 				0E3A985D21EF3218009F1ACE /* WKNewsDetailCell.m */,
 				0E3A985F21EF351B009F1ACE /* WKNewsDetailHeader.h */,
 				0E3A986021EF351B009F1ACE /* WKNewsDetailHeader.m */,
+				0E741C2D223644CB00B2A158 /* WKNewsChartView.h */,
+				0E741C2E223644CB00B2A158 /* WKNewsChartView.m */,
+				0E741C30223A00C600B2A158 /* WKReportCell.h */,
+				0E741C31223A00C600B2A158 /* WKReportCell.m */,
+				0E741C33223A013800B2A158 /* WKRatingView.h */,
+				0E741C34223A013800B2A158 /* WKRatingView.m */,
 			);
 			name = VIews;
 			path = STONotice/News/VIews;
@@ -981,6 +996,7 @@
 				0E3A985521EF043F009F1ACE /* WKCustomSegmentView.m in Sources */,
 				0E3A983C21EDB932009F1ACE /* NSObject+WKGradientAdd.m in Sources */,
 				0E3A985B21EF31C6009F1ACE /* WKNewsDetailVC.m in Sources */,
+				0E741C32223A00C600B2A158 /* WKReportCell.m in Sources */,
 				0EBEEDAF21E6F90E0010E6FA /* WKDiscussCell.m in Sources */,
 				0EBEEDC121EC260E0010E6FA /* WKProjectDiscussCell.m in Sources */,
 				0EBEED7D21E4A3200010E6FA /* WKPostInfoModel.m in Sources */,
@@ -993,6 +1009,7 @@
 				0EBEEDCD21EC68F20010E6FA /* WKCommentView.m in Sources */,
 				0EBEED9221E588690010E6FA /* WKRegisterVC.m in Sources */,
 				0E3A986D21F1C627009F1ACE /* WKHomeManager.m in Sources */,
+				0E741C35223A013800B2A158 /* WKRatingView.m in Sources */,
 				0E3A985E21EF3218009F1ACE /* WKNewsDetailCell.m in Sources */,
 				0E9DEC3C21FEE69900E855EB /* UIFont+Adjust.m in Sources */,
 				0EBEEDB821E738F60010E6FA /* WKSetLanagueVC.m in Sources */,
@@ -1013,6 +1030,7 @@
 				0EBEED3721E4730A0010E6FA /* WKWeakProxy.m in Sources */,
 				0EBEEDC421EC265B0010E6FA /* WKDisCollectionViewCell.m in Sources */,
 				0E3A984F21EEE026009F1ACE /* WKDisDetailHeaderView.m in Sources */,
+				0E741C2F223644CB00B2A158 /* WKNewsChartView.m in Sources */,
 				0E3A986121EF351B009F1ACE /* WKNewsDetailHeader.m in Sources */,
 				0EBEED4C21E476410010E6FA /* WKHomeViewController.m in Sources */,
 				0EBEED3921E4730A0010E6FA /* WKURLSessionConfigurationManager.m in Sources */,

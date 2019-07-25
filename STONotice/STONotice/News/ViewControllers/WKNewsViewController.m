@@ -11,6 +11,7 @@
 #import "WKNewCell.h"
 #import "WKNewsDetailVC.h"
 #import "WKNewsManager.h"
+#import "WKNewsChartView.h"
 
 
 @interface WKNewsViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate>
@@ -22,6 +23,8 @@
 
 @property (nonatomic, strong) SDCycleScrollView *bannerView;
 @property (nonatomic, strong) UIView *shdowView;
+
+@property (nonatomic, strong) WKNewsChartView *newsChartView;
 
 @end
 
@@ -132,7 +135,9 @@
             self.mainTV.mj_footer.hidden = YES;
             
         }
-        self.mainTV.tableHeaderView = [self createBannerView];
+//        self.mainTV.tableHeaderView = [self createBannerView];
+        self.mainTV.tableHeaderView = self.newsChartView;
+//        [self.newsChartView makeAnimation];
         
     } fail:^(NSError * _Nonnull error) {
         
@@ -286,6 +291,15 @@
         _bannerView.delegate = self;
     }
     return _bannerView;
+}
+
+- (WKNewsChartView *)newsChartView {
+    if (!_newsChartView) {
+        _newsChartView = [[WKNewsChartView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
+        
+        [_newsChartView drawChartLayerWithDataItems:@[@(200), @(100), @(500)] colors:@[[UIColor greenColor], [UIColor blueColor], [UIColor blackColor]] titles:@[] atFrame:CGRectMake(20, 20, 150, 150)];
+    }
+    return _newsChartView;
 }
 
 @end

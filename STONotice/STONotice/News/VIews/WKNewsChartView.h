@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WKNewsChartView : UIView
 
+- (void)drawChartLayerWithDataItems:(nonnull NSArray *)dataItems
+                             colors:(nonnull NSArray <UIColor *> *)colors
+                             titles:(NSArray <NSString *> *)titles
+                            atFrame:(CGRect)frame;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,6 +8,15 @@
 
 #import "WKReportCell.h"
 
+@interface WKReportCell ()
+
+@property (nonatomic, strong) UIImageView *headerV;
+@property (nonatomic, strong) UILabel *nameL;
+
+
+
+@end
+
 @implementation WKReportCell
 
 - (void)awakeFromNib {
